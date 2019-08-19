@@ -1,23 +1,23 @@
 \documentclass{article}
+\usepackage{blindtext}
+\usepackage{titlesec}
 \usepackage[utf8]{inputenc}
 
 \title{FOAR705 Learning Journal}
 \author{Osmond Chiu}
 \date{Semester 2, 2019}
-\usepackage[utf8]{inputenc}
 
- 
-\pagenumbering{roman} 
 \begin{document}
 \maketitle
+\tableofcontents
 
-\section*{9/8/2019 - 7:10pm}
+\section{Data Carpentry}
+\subsection*{9/8/2019 - 7:10pm}
 I’ve decided to get a head start by reading instructions for the first exercise ‘Formatting data tables in Spreadsheets’ and have read the Data Organization in Spreadsheet lessons.\\
 \\
 At this stage, from a quick glance and the explanations it seems relatively straight forward but there might be issues that come up.\par
- 
-\section*{10/8/2019 – 9:15am}
-\subsection*{Data Carpentry}
+\subsection*{10/8/2019 – 9:15am}
+\subsubsection*{Data Cleaning Exercise}
 Objective:\\
 \\Identify errors in SAFI messy.xlsx spreadsheet\\
 \\
@@ -123,15 +123,9 @@ For the Tanzania sheet:
 \end{itemize}
 Error: None \\\\
 Result: Now that the data is cleaned, a new sheet will be created and the data can be copied across with columns aligned 
-\section*{10/8/2019 – 10:57am}
-\subsection*{Proof of Concept}
-I’ve started to have a think about the proof of concept for scoping.\\\\
-There are a range of jobs that will need to be done for my thesis, including a fair few tedious and repetitive tasks. Automating some of those processes would free up time and help a lot.\\\\
-Given my thesis is about re-nationalisations in Australia, it will involve a fair bit of trawling for information through Trove, government documents, websites and newspapers. From what I can tell to date, there is not much on re-nationalisation in Australia but plenty on problems with privatisation. Identifying examples of re-nationalisations to examine and available sources would be very useful.\\\\
-There is also the more general tasks of formatting and referencing and task management.
  
-\section*{10/8/2019 – 3:06pm}
-\subsection*{Data Carpentry}
+\subsection*{10/8/2019 – 3:06pm}
+\subsubsection*{Metadata Exercise}
  
 I have read the second exercise on Metadata and think I understand what it is asking.
 \\\\
@@ -174,21 +168,122 @@ Click commit to change
 \end{itemize}
 Error: None\\\\
 Result: File uploaded.
-\section*{12/8/2019 - 8:45pm}
-\subsection*{Homework Exercise}
-We were asked to think of two examples of problem data produced by our discipline. For sociology, the two that come to mind is data from surveys and secondary data sources such as government statistics. I may use neither for my own thesis research proposal so have outlined theoretical issues based on what I know.\\\\
-While surveys can yield significant data, it depends on the exact questions asked and the available answers. Surveys may not capture how people act but rather what they think or believe they should think.\\\\
-Quantitative surveys may not have an option that reflects the interviewees actual response. Qualitative surveys provide more options but bad coding of answers by the interviewer may twist responses into something that do not reflect what was said.\\\\
-Data using secondary sources is often used but there can be problems. Using different datasets that might have different assumptions, for example, trying to use old government statistical data over a long time period when the collection method and calculations have changed.
-\section*{12/8/2019 - 9:55pm}
-\subsection*{Proof of Concept}
+
+\subsection*{16/08/2019 - 3:01pm}
+\subsubsection*{Dates Exercise}
+All dates are stored as the number of days in spreadsheet since day X. Dates will often be wrong.\\\\
+Make sure the month is written as letters.\\\\
+Put date format in metadata\\\\
+\subsection*{16/8/2019 - 6:16pm}
+\subsubsection*{Data As Dates Exercise}
+Objective: Separate dates into component\\\\
+Action:
+\begin{itemize}
+\item Open ‘SAFI Dates.xlsx’
+\item Save copy with file name ‘SAFI Dates Exercise Copy’.xlsx
+\item Add columns ‘month’, ‘day’, ‘year’  to MMDDYYYY tab
+\item Add formulas =Month(A2), =Day(A2), =Year(A2) under columns
+\item Copy formula by dragging fill handle for new columns to the last row with data
+\end{itemize}
+Error: None\\\\
+Result: Dates in A2 column are separated into month, day and year columns\\\\
+Objective:\\\\
+Default year\\\\
+Action:
+\begin{itemize}
+ \item In file name ‘SAFI Dates Exercise Copy’.xlsx
+\item Add columns ‘interview date’  to MMDDYYYY tab
+\item Add new value ‘11/17’ to A2 column
+\item Copy formula by dragging fill handle for new columns to the last row with data
+\end{itemize}
+Error: None\\\\
+Result: Dates comes up as 1 November 2017
+\subsection*{17/8/2019 - 9:18am}
+\subsubsection*{Data Validation Exercise}
+Objective:\\\\
+Restricting data to numerical values\\\\
+Action:
+\begin{itemize}
+\item Open ‘SAFI Clean.csv’
+\item Save copy ‘SAFI Clean Copy.csv’
+\item Select column titled ‘rooms’
+\item Click ‘Data’ menu then select ‘Data validation’
+\item Select ‘Whole number’ in ‘Allow’
+\item Fill in ‘1’ minimum and ‘30’ as the maximum values
+\item Click ‘Input Message’ tab
+\item Fill in ‘Title’ with ‘Acceptable values’
+\item Fill in ‘Input Message’ with ‘The number of rooms must be between 1 and 30’
+\item Click ‘Error alert’ tab
+\item Click ‘Style’ and choose ‘Stop ’
+\item Fill in ‘Title’ with ‘Wrong Figure’
+\item Fill in ‘Error Message ’ with ‘The number chosen is not between 1 and 30’
+Click ‘Ok’
+\end{itemize}
+Error: None\\\\
+Result: A yellow box appears when the cursor hovers over the column. The box has a title ‘Acceptable values’ with ‘The number of rooms must be between 1 and 30’ underneath.\\\\
+When a figure larger than 30 is entered into a cell in the column, a pop message titled ‘Wrong Figure’ stating ‘The value to be entered must be a whole number between 1 and 30’ appears.\\\\
+Objective:\\\\
+Restricting data to entries from a list\\\\
+Action:
+\begin{itemize}
+\item Select column titled ‘village ’
+\item Click ‘Data’ menu then select ‘Data validation’
+\item Select ‘List’ in ‘Allow’
+\item Fill in Source with ‘God’, ‘Ruaca’ and ‘Chirodzo’ as values separated by commas
+\item Click ‘Input Message’ tab
+\item Fill in ‘Title’ with ‘Acceptable values’
+\item Fill in ‘Input Message’ with ‘The villages are God, Ruaca or Chirodzo’
+\item Click ‘Error alert’ tab
+\item Click ‘Style’ and choose ‘Stop ’
+\item Fill in ‘Title’ with ‘Wrong Village ’
+\item Fill in ‘Error Message ’ with ‘Choose either God, Ruaca or Chirodzo’
+Click ‘Ok’
+\end{itemize}
+Error: None\\\\
+Results: A yellow box appears when the cursor hovers over the column. The box has a title ‘Acceptable values’ with ‘The villages are God, Ruaca or Chirodzo’ underneath. There is a button that opens a drop down menu of the three options.\\\\
+When a figure larger than 30 is entered into a cell in the column, a pop message titled ‘Wrong Value’ stating ‘Choose either God, Ruaca or Chirodzo’ appears.
+\subsection*{17/8/2019 - 10:03am}
+\subsubsection*{Exporting data}
+Objective:\\\\
+Export spreadsheet to .csv\\\\
+Action:
+\begin{itemize}
+\item Open file name “SAFI dates.xlsx
+\item Click ‘File’ then ‘Save As’
+\item Choose .csv as ‘Format’ then Click Save
+\end{itemize}
+Error: This workbook cannot be saved in the selected file format because it contains multiple sheets.\\\\
+Result: Option of saving the ‘Active sheet’ or cancelling the save.\\\\
+If a spreadsheet has multiple sheets as SAFI dates.xlsx did and you want to export it to .csv, you will need to separate the sheets or place the information into the same sheet.\\\\
+Objective: Export MMDDYY sheet to .csv\\\\
+Action:
+\begin{itemize}
+\item Open file name “SAFI dates.xlsx, choose MMDDYY sheet
+\item Click ‘File’ then ‘Save As’
+\item Choose .csv as ‘Format’ then Click Save
+\item Option of saving the ‘Active sheet’ or cancelling the save.
+\item Click ‘Continue’ when the message ‘This workbook contains features that will not work or may be removed if you save it in the selected file format. Do you want to continue?’ pops up
+\end{itemize}
+Error: None\\\\
+Result: First sheet saved as .csv file\\\\
+Opening the SAFI dates.csv file in a text editor, the data is organised by rows with the data separated by columns.
+\section{Proof of Concept}
+\subsection*{10/8/2019 – 10:57am}
+I’ve started to have a think about the proof of concept for scoping.\\\\
+There are a range of jobs that will need to be done for my thesis, including a fair few tedious and repetitive tasks. Automating some of those processes would free up time and help a lot.\\\\
+Given my thesis is about re-nationalisations in Australia, it will involve a fair bit of trawling for information through Trove, government documents, websites and newspapers. From what I can tell to date, there is not much on re-nationalisation in Australia but plenty on problems with privatisation. Identifying examples of re-nationalisations to examine and available sources would be very useful.\\\\
+There is also the more general tasks of formatting and referencing and task management.
+
+\subsection*{12/8/2019 - 9:55pm}
+\subsubsection*{Jobs, Pains and Gains }
 Reflecting on my scoping project, there are plenty of obvious tasks and pain points for the thesis though the technical solutions are less immediately obvious.\\\\
 Going through the range of tasks that need to be done for my thesis, there are quite a few. These include developing my research question to data collection to data analysis to writing and editing and referencing. It will be time consuming and I will also need to balance it with other work and personal commitments.\\\\
 There are some obvious tools that can be used to ease pain that were mentioned during the class such as LaTex, Github, referencing and project management software.\\\\
 Opportunities for gain would be through automating searches. The limited academic literature on re-nationalisation in Australia means that it would be handy if it could trawl through Trove and other newspaper archives, especially over the last decade. It may be a better source for information than academic journals.
-\section*{14/8/2019 - 7:30pm}
-\subsection*{Scoping Project}
-I’ve decided to try to use LaTex for my scoping project. I had intially drafted my scoping project on Word but will copy the text over.\\\\
+
+\subsection*{14/8/2019 - 7:30pm}
+\subsubsection*{LaTex}
+I’ve decided to try to use LaTex for my scoping project. I had initially drafted my scoping project on Word but will copy the text over.\\\\
 I have not used LaTex before but playing around with it, the commands for basic formatting does not look too difficult to remember. I quickly looked at the guides on Overleaf.\\\\
 I created a new blank document then started from scratch by removing the existing code.\\\\
 Objective: Generate Title and author\\\\
@@ -267,8 +362,8 @@ Analysing data may involve (but not be limited to):
 Error: None\\\\
 Result: Itemised lists generated\\\\
 The thing that is unclear is how to easy leave a space between lines without needing to specify how large the gap is.
-\section*{14/8/2019 - 10:30pm}
-\subsection*{Scoping Project}
+\subsection*{14/8/2019 - 10:30pm}
+\subsubsection*{Uploading Scoping Project}
 
 After editing the text of my scoping project, it is now ready to be submitted. I will need to download it as a PDF and also in tex format.\\\\
 Objective:\\\\ Download LaTex document as PDF\\\\
@@ -286,150 +381,15 @@ Error: None\\\\
 Result: No download.\\\\
 It wasn’t clear what happened. I tried it a few times but it did not appear on my system even though it appeared to download. I changed browsers from Safari to Chrome and it seemed to work. Unclear why.\\\\
 The downloaded .tex file was then uploaded to Cloudstor
-\section*{16/8/2019 - 2:10pm}
-\subsection*{FOAR705 Week 3 Class}
-Revised date for scoping study. Scoping study uploaded to Cloudstor can be deleted. Contact Brian on DM to get it deleted from iLearn on Slack.\\\\
-If you don’t define the problem, you won’t know if you have solved it.\\\\
-Scoping is what is the point of the exercise. The aim is to think about the problem without the context of the solution.\\\\
-Stackoverflow aimed at being a site to ask about problem, not solutions.\\\\
-Elaboration is about identifying what technology (tool or technique) has solved the problem e.g. checklist is a technology. The aim is to not invent things from scratch and find how most people have solved a similar problem.\\\\
-Test technology to see if we understood its claims correctly as it can be portrayed with rose coloured glasses.\\\\
-Note that 80-90\% of software products fail.\\\\
-Thesis is a project. If you don’t define the problem the thesis will face, you won’t know.\\\\
-Formatting cannot have meaning.\\\\
-Controlled vocabulary - saying at the start, the only options that can be chosen. Any other value is an error. There is a prepopulated list (allows Other).\\\\
-Each variable should have an explanation in metadata.\\\\
-Metadata is a description of your dataset such that someone will be able to add to it. Sufficiently detailed that someone can add a new row.\\\\
-Metadata is not just for spreadsheets e.g. bibliography - where did we look, what search terms did use to we find it. Readme file - file name and description in folder.\\\\
-Metadata should be in a different file, not a table. If you save something as a CSV, formatting is gone and you cannot have tabs.\\\\
 
-\section*{16/08/2019 - 3:01pm}
-\subsection*{Dates Exercise}
-All dates are stored as the number of days in spreadsheet since day X. Dates will often be wrong.\\\\
-Make sure the month is written as letters.\\\\
-Put date format in metadata\\\\
-\section*{16/8/2019 - 3:16pm}
-\subsection*{FOAR705 Week 3 Class - Computational Thinking}
+\subsection*{16/08/2019 - 7:01pm}
+\subsubsection*{Revising Scoping Exercise}
+After re-examining the guidance Week 2 in Cloudstor, I did some additional editing of my scoping exercise to remove references to tools and to focus on the jobs, pains, pain relievers, gains and gain opportunities.
 
-Computation thinking:\\
-Decomposition - Taking a complex task and breaking it down into what needs to be done\\\\
-Algorithm Design: articulating set of step-by-step instructions\\\\
-Properly formatted references and bibliography exercise. Tasks to be done?
-\begin{itemize}
-\item Define what properly formatted and bibliography mean in terms of my thesis
-\item Find required format
-\item Getting the correct information in
-\end{itemize}
-Humans are good at collecting data, summarisation is tedious.
-\section*{16/8/2019 - 3:16pm} 
-\subsection*{FOAR705 Week 3 Class - Project Management Notes}
-\begin{itemize}
-\item Waterfall vs agile approach
-\item Agile manifesto - not fetishing the process
-\item Before investing time, fail early and often and test. Develop a couple of steps and test them. If they do not work, you may have to start over.
-\item Do preliminary work to see if it is going to work. Respond to changes and feedback.
-\item Estimate how much time each sub-task takes on Gantt chart so you can make adjustments. It is about identifying what is the critical path.
-\item Kanban board can break down sub-tasks into what you need to do daily and can complement Gantt charts.
-\item Kanban can limit your work in progress.
-\end{itemize}
-\section*{16/8/2019 - 6:16pm}
-\subsection*{Data As Dates Exercise}
-Objective: Separate dates into component\\\\
-Action:
-\begin{itemize}
-\item Open ‘SAFI Dates.xlsx’
-\item Save copy with file name ‘SAFI Dates Exercise Copy’.xlsx
-\item Add columns ‘month’, ‘day’, ‘year’  to MMDDYYYY tab
-\item Add formulas =Month(A2), =Day(A2), =Year(A2) under columns
-\item Copy formula by dragging fill handle for new columns to the last row with data
-\end{itemize}
-Error: None\\\\
-Result: Dates in A2 column are separated into month, day and year columns\\\\
-Objective:\\\\
-Default year\\\\
-Action:
-\begin{itemize}
- \item In file name ‘SAFI Dates Exercise Copy’.xlsx
-\item Add columns ‘interview date’  to MMDDYYYY tab
-\item Add new value ‘11/17’ to A2 column
-\item Copy formula by dragging fill handle for new columns to the last row with data
-\end{itemize}
-Error: None\\\\
-Result: Dates comes up as 1 November 2017
-\section*{16/08/2019 - 7:01pm}
-\subsection*{Scoping Exercise}
-I did some additional editing of my scoping exercise to remove references to tools and to focus on the jobs, pains, pain relievers, gains and gain opportunities.
-\section*{17/8/2019 - 9:18am}
-\subsection*{Data Validation Exercise}
-Objective:\\\\
-Restricting data to numerical values\\\\
-Action:
-\begin{itemize}
-\item Open ‘SAFI Clean.csv’
-\item Save copy ‘SAFI Clean Copy.csv’
-\item Select column titled ‘rooms’
-\item Click ‘Data’ menu then select ‘Data validation’
-\item Select ‘Whole number’ in ‘Allow’
-\item Fill in ‘1’ minimum and ‘30’ as the maximum values
-\item Click ‘Input Message’ tab
-\item Fill in ‘Title’ with ‘Acceptable values’
-\item Fill in ‘Input Message’ with ‘The number of rooms must be between 1 and 30’
-\item Click ‘Error alert’ tab
-\item Click ‘Style’ and choose ‘Stop ’
-\item Fill in ‘Title’ with ‘Wrong Figure’
-\item Fill in ‘Error Message ’ with ‘The number chosen is not between 1 and 30’
-Click ‘Ok’
-\end{itemize}
-Error: None\\\\
-Result: A yellow box appears when the cursor hovers over the column. The box has a title ‘Acceptable values’ with ‘The number of rooms must be between 1 and 30’ underneath.\\\\
-When a figure larger than 30 is entered into a cell in the column, a pop message titled ‘Wrong Figure’ stating ‘The value to be entered must be a whole number between 1 and 30’ appears.\\\\
-Objective:\\\\
-Restricting data to entries from a list\\\\
-Action:
-\begin{itemize}
-\item Select column titled ‘village ’
-\item Click ‘Data’ menu then select ‘Data validation’
-\item Select ‘List’ in ‘Allow’
-\item Fill in Source with ‘God’, ‘Ruaca’ and ‘Chirodzo’ as values separated by commas
-\item Click ‘Input Message’ tab
-\item Fill in ‘Title’ with ‘Acceptable values’
-\item Fill in ‘Input Message’ with ‘The villages are God, Ruaca or Chirodzo’
-\item Click ‘Error alert’ tab
-\item Click ‘Style’ and choose ‘Stop ’
-\item Fill in ‘Title’ with ‘Wrong Village ’
-\item Fill in ‘Error Message ’ with ‘Choose either God, Ruaca or Chirodzo’
-Click ‘Ok’
-\end{itemize}
-Error: None\\\\
-Results: A yellow box appears when the cursor hovers over the column. The box has a title ‘Acceptable values’ with ‘The villages are God, Ruaca or Chirodzo’ underneath. There is a button that opens a drop down menu of the three options.\\\\
-When a figure larger than 30 is entered into a cell in the column, a pop message titled ‘Wrong Value’ stating ‘Choose either God, Ruaca or Chirodzo’ appears.
-\section*{17/8/2019 - 10:03am}
-\subsection*{Exporting data}
-Objective:\\\\
-Export spreadsheet to .csv\\\\
-Action:
-\begin{itemize}
-\item Open file name “SAFI dates.xlsx
-\item Click ‘File’ then ‘Save As’
-\item Choose .csv as ‘Format’ then Click Save
-\end{itemize}
-Error: This workbook cannot be saved in the selected file format because it contains multiple sheets.\\\\
-Result: Option of saving the ‘Active sheet’ or cancelling the save.\\\\
-If a spreadsheet has multiple sheets as SAFI dates.xlsx did and you want to export it to .csv, you will need to separate the sheets or place the information into the same sheet.\\\\
-Objective: Export MMDDYY sheet to .csv\\\\
-Action:
-\begin{itemize}
-\item Open file name “SAFI dates.xlsx, choose MMDDYY sheet
-\item Click ‘File’ then ‘Save As’
-\item Choose .csv as ‘Format’ then Click Save
-\item Option of saving the ‘Active sheet’ or cancelling the save.
-\item Click ‘Continue’ when the message ‘This workbook contains features that will not work or may be removed if you save it in the selected file format. Do you want to continue?’ pops up
-\end{itemize}
-Error: None\\\\
-Result: First sheet saved as .csv file\\\\
-Opening the SAFI dates.csv file in a text editor, the data is organised by rows with the data separated by columns.
-\section*{19/8/2019 - 6:04pm}
-\subsection*{Transferring Learning Journal}
+The revised version was uploaded by repeating the previous steps I had taken.
+
+\subsection*{19/8/2019 - 6:04pm}
+\subsubsection*{Transferring Learning Journal}
 I've decided to shift my Learning Journal over from Word to Overleaf. I copied and pasted the text from Word into a blank document. During the editing process I have a few errors, some of which I could resolve, others which I have not resolved yet:\\\\
 \textbf{Underscores and bullet points do not work}\\\\
 An attempted list does not work and all the bullet points are in a single line. I tried to work out why this error was occurring and realised it was because of the inclusion of underscores. I resolved the issue by replacing the underscores with a space.\\\\
@@ -439,8 +399,10 @@ It was initially unclear how to include commands in LaTex without executing them
 I had intially used using  \begin{verbatim}\par\end{verbatim} to create paragraphs but it was not able to create a space between lines. Looking through the FAQ, I found that using the double backslash could do it\\\\
 \textbf{Italics}\\\\
 To distinguish the commands to execute, I attempted to italicise slabs. Because of the use of brackets in multiple commands it became very difficult to close the formatting. I gave up for the time being but will reinvestigate.
-\section*{19/8/2019 - 6:04pm}
-\subsection*{Scoping Exercise}
+\textbf{Table of Contents}\\\\
+I have attempted to create a table of contents using 'Chapters' but it does not seem to be working. As a work around, I have used 'Sections' instead.
+\subsection*{19/8/2019 - 6:04pm}
+\subsubsection*{Computational thinking}
 Applying 'computation thinking' to my scoping exercise to break down pains and gains into smaller parts.\\\\ 
 The pains are:
 \begin{itemize}
@@ -463,5 +425,55 @@ The opportunities for gain are:
 \item Referencing
 \end{itemize}
 What are the patterns in the problems and how can the solutions be revised to produce a step-by-step guide?
+
+\section{Class notes and other homework}
+\subsection*{12/8/2019 - 8:45pm}
+\subsubsection*{Homework Exercise}
+We were asked to think of two examples of problem data produced by our discipline. For sociology, the two that come to mind is data from surveys and secondary data sources such as government statistics. I may use neither for my own thesis research proposal so have outlined theoretical issues based on what I know.\\\\
+While surveys can yield significant data, it depends on the exact questions asked and the available answers. Surveys may not capture how people act but rather what they think or believe they should think.\\\\
+Quantitative surveys may not have an option that reflects the interviewees actual response. Qualitative surveys provide more options but bad coding of answers by the interviewer may twist responses into something that do not reflect what was said.\\\\
+Data using secondary sources is often used but there can be problems. Using different datasets that might have different assumptions, for example, trying to use old government statistical data over a long time period when the collection method and calculations have changed.
+
+\subsection*{16/8/2019 - 2:10pm}
+\subsubsection*{FOAR705 Week 3 Class}
+Revised date for scoping study. Scoping study uploaded to Cloudstor can be deleted. Contact Brian on DM to get it deleted from iLearn on Slack.\\\\
+If you don’t define the problem, you won’t know if you have solved it.\\\\
+Scoping is what is the point of the exercise. The aim is to think about the problem without the context of the solution.\\\\
+Stackoverflow aimed at being a site to ask about problem, not solutions.\\\\
+Elaboration is about identifying what technology (tool or technique) has solved the problem e.g. checklist is a technology. The aim is to not invent things from scratch and find how most people have solved a similar problem.\\\\
+Test technology to see if we understood its claims correctly as it can be portrayed with rose coloured glasses.\\\\
+Note that 80-90\% of software products fail.\\\\
+Thesis is a project. If you don’t define the problem the thesis will face, you won’t know.\\\\
+Formatting cannot have meaning.\\\\
+Controlled vocabulary - saying at the start, the only options that can be chosen. Any other value is an error. There is a prepopulated list (allows Other).\\\\
+Each variable should have an explanation in metadata.\\\\
+Metadata is a description of your dataset such that someone will be able to add to it. Sufficiently detailed that someone can add a new row.\\\\
+Metadata is not just for spreadsheets e.g. bibliography - where did we look, what search terms did use to we find it. Readme file - file name and description in folder.\\\\
+Metadata should be in a different file, not a table. If you save something as a CSV, formatting is gone and you cannot have tabs.\\\\
+
+\subsection*{16/8/2019 - 3:16pm}
+\subsubsection*{FOAR705 Week 3 Class - Computational Thinking}
+
+Computation thinking:\\
+Decomposition - Taking a complex task and breaking it down into what needs to be done\\\\
+Algorithm Design: articulating set of step-by-step instructions\\\\
+Properly formatted references and bibliography exercise. Tasks to be done?
+\begin{itemize}
+\item Define what properly formatted and bibliography mean in terms of my thesis
+\item Find required format
+\item Getting the correct information in
+\end{itemize}
+Humans are good at collecting data, summarisation is tedious.
+\subsection*{16/8/2019 - 3:16pm} 
+\subsubsection*{FOAR705 Week 3 Class - Project Management Notes}
+\begin{itemize}
+\item Waterfall vs agile approach
+\item Agile manifesto - not fetishing the process
+\item Before investing time, fail early and often and test. Develop a couple of steps and test them. If they do not work, you may have to start over.
+\item Do preliminary work to see if it is going to work. Respond to changes and feedback.
+\item Estimate how much time each sub-task takes on Gantt chart so you can make adjustments. It is about identifying what is the critical path.
+\item Kanban board can break down sub-tasks into what you need to do daily and can complement Gantt charts.
+\item Kanban can limit your work in progress.
+\end{itemize}
 
 \end{document}
