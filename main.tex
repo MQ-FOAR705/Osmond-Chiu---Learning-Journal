@@ -2,15 +2,81 @@
 \usepackage{blindtext}
 \usepackage{titlesec}
 \usepackage[utf8]{inputenc}
+\usepackage{tocloft}
+\newcommand{\listerrorname}{Table of Useful Errors}
+\newlistof{error}{err}{\listerrorname}
+\newcommand{\error}[1]{%
+\refstepcounter{error}
+  \par\noindent\textbf{error \theerror. #1}
+\addcontentsline{err}{error}
+{\protect\numberline{\thechapter.\theerror} #1}}
 
 \title{FOAR705 Learning Journal}
 \author{Osmond Chiu}
 \date{Semester 2, 2019}
-
 \begin{document}
 \maketitle
 \tableofcontents
 
+\newpage
+\section{Table of Useful Errors}
+
+\subsection*{17/8/2019 - 10:03am}
+\subsubsection*{Exporting data}
+Objective:\\\\
+Export spreadsheet to .csv\\\\
+Action:
+\begin{itemize}
+\item Open file name “SAFI dates.xlsx
+\item Click ‘File’ then ‘Save As’
+\item Choose .csv as ‘Format’ then Click Save
+\end{itemize}
+Error: This workbook cannot be saved in the selected file format because it contains multiple sheets.\label{error:CSV export}\\\\
+Result: Option of saving the ‘Active sheet’ or cancelling the save.\\\\
+If a spreadsheet has multiple sheets as SAFI dates.xlsx did and you want to export it to .csv, you will need to separate the sheets or place the information into the same sheet.\\\\
+
+\subsection*{19/8/2019 - 6:04pm}
+\subsubsection*{LaTex - Transferring Learning Journal}
+\textit{Underscores and bullet points do not work}\label{error:Underscore}\\\\
+An attempted list does not work and all the bullet points are in a single line. I tried to work out why this error was occurring and realised it was because of the inclusion of underscores. I resolved the issue by replacing the underscores with a space.\\\\
+\textit{Commands}\\\\\label{error:Commands in LaTex}
+It was initially unclear how to include commands in LaTex without executing them when I copied across the text for the leraning journal. I entered 'how to display latex commands in latex' into Google and an Overleaf FAQ page that suggested using  \begin{verbatim}\begin{verbatim} \end{verbatim} \\\\
+\textit{Italics}\\\\
+To distinguish the commands to execute, I attempted to italicise slabs. Because of the use of brackets in multiple commands it became very difficult to close the formatting. I gave up for the time being but will reinvestigate.\\\\
+\textit{Table of Contents}\\\\
+I have attempted to create a table of contents using 'Chapters' but it does not seem to be working. As a work around, I have used 'Sections' instead.
+
+\subsection*{21/8/2019 – 7:05pm}
+\subsubsection*{Table of Errors}
+A conversation on Slack in the \#assignment channel indicated that a table of errors needed to be included in the learning journal and that a cross-reference table of errors should be created.\\\\
+Links were provided to some guidance and code to create a table. The links were https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/ and https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing#Sections\\\\
+Objective:\\\\
+Create a cross-referenced table of errors\\\\
+Action:\\\\
+\begin{itemize}
+    \item Identify errors and label with code and replace X with the useful error name \begin{verbatim} \label{error:X}    \end{verbatim} 
+    \item Load the tocloft package by entering \begin{verbatim} \usepackage{tocloft}\end{verbatim} 
+    \item Create a list by entering \begin{verbatim}\newcommand{\listerrorname}{Table of Errors}
+
+\newlistof{error}{err}{\listerrorname}
+\newcommand{\error}[1]{%
+\refstepcounter{error}
+  \par\noindent\textbf{error \theerror. #1}
+\addcontentsline{err}{error}
+{\protect\numberline{\thechapter.\theerror} #1}}\end{verbatim} 
+\item Enter the following code \begin{verbatim}
+\error{My first error}
+\label{err:error1}
+\end{verbatim} 
+\end{itemize}
+
+Error: Title of list generates but no contents of the list\\\\
+Result: Title of list 'Table of Useful Errors' and 'error 1. My first error' generates but no contents of the list\\\\
+
+Unclear from the code exactly how to make it work. Given the amount of time it has taken to try to work this out, I will need to just create a Table at the end and come back to cross-referencing later.
+
+
+\newpage
 \section{Data Carpentry}
 \subsection*{9/8/2019 - 7:10pm}
 I’ve decided to get a head start by reading instructions for the first exercise ‘Formatting data tables in Spreadsheets’ and have read the Data Organization in Spreadsheet lessons.\\
@@ -252,7 +318,7 @@ Action:
 \item Click ‘File’ then ‘Save As’
 \item Choose .csv as ‘Format’ then Click Save
 \end{itemize}
-Error: This workbook cannot be saved in the selected file format because it contains multiple sheets.\\\\
+Error: This workbook cannot be saved in the selected file format because it contains multiple sheets.\label{error:CSV export}\\\\
 Result: Option of saving the ‘Active sheet’ or cancelling the save.\\\\
 If a spreadsheet has multiple sheets as SAFI dates.xlsx did and you want to export it to .csv, you will need to separate the sheets or place the information into the same sheet.\\\\
 Objective: Export MMDDYY sheet to .csv\\\\
@@ -267,6 +333,36 @@ Action:
 Error: None\\\\
 Result: First sheet saved as .csv file\\\\
 Opening the SAFI dates.csv file in a text editor, the data is organised by rows with the data separated by columns.
+\subsection*{21/8/2019 – 7:05pm}
+\subsubsection*{Table of Errors}
+A conversation on Slack in the \#assignment channel indicated that a table of errors needed to be included in the learning journal and that a cross-reference table of errors should be created.\\\\
+Links were provided to some guidance and code to create a table. The links were https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/ and https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing#Sections\\\\
+Objective:\\\\
+Create a cross-referenced table of errors\\\\
+Action:\\\\
+\begin{itemize}
+    \item Identify errors and label with code and replace X with the useful error name \begin{verbatim} \label{error:X}    \end{verbatim} 
+    \item Load the tocloft package by entering \begin{verbatim} \usepackage{tocloft}\end{verbatim} 
+    \item Create a list by entering \begin{verbatim}\newcommand{\listerrorname}{Table of Errors}
+
+\newlistof{error}{err}{\listerrorname}
+\newcommand{\error}[1]{%
+\refstepcounter{error}
+  \par\noindent\textbf{error \theerror. #1}
+\addcontentsline{err}{error}
+{\protect\numberline{\thechapter.\theerror} #1}}\end{verbatim} 
+\item Enter the following code \begin{verbatim}
+\error{My first error}
+\label{err:error1}
+\end{verbatim} 
+\end{itemize}
+
+Error: Title of list generates but no contents of the list\\\\
+Result: Title of list 'Table of Useful Errors' and 'error 1. My first error' generates but no contents of the list\\\\
+
+Unclear from the code exactly how to make it work. Given the amount of time it has taken to try to work this out, I will need to just create a Table at the end and come back to cross-referencing later.
+
+\newpage
 \section{Proof of Concept}
 \subsection*{10/8/2019 – 10:57am}
 I’ve started to have a think about the proof of concept for scoping.\\\\
@@ -389,17 +485,17 @@ After re-examining the guidance Week 2 in Cloudstor, I did some additional editi
 The revised version was uploaded by repeating the previous steps I had taken.
 
 \subsection*{19/8/2019 - 6:04pm}
-\subsubsection*{Transferring Learning Journal}
+\subsubsection*{LaTex - Transferring Learning Journal}
 I've decided to shift my Learning Journal over from Word to Overleaf. I copied and pasted the text from Word into a blank document. During the editing process I have a few errors, some of which I could resolve, others which I have not resolved yet:\\\\
-\textbf{Underscores and bullet points do not work}\\\\
+\textit{Underscores and bullet points do not work}\label{error:Underscore}\\\\
 An attempted list does not work and all the bullet points are in a single line. I tried to work out why this error was occurring and realised it was because of the inclusion of underscores. I resolved the issue by replacing the underscores with a space.\\\\
-\textbf{Commands}\\\\
-It was initially unclear how to include commands in LaTex without executing them. I entered 'how to display latex commands in latex' into Google and an Overlaf FAQ page that suggested using  \begin{verbatim}\begin{verbatim} \end{verbatim} \\\\
-\textbf{Line breaks}\\\\
-I had intially used using  \begin{verbatim}\par\end{verbatim} to create paragraphs but it was not able to create a space between lines. Looking through the FAQ, I found that using the double backslash could do it\\\\
-\textbf{Italics}\\\\
-To distinguish the commands to execute, I attempted to italicise slabs. Because of the use of brackets in multiple commands it became very difficult to close the formatting. I gave up for the time being but will reinvestigate.
-\textbf{Table of Contents}\\\\
+\textit{Commands}\\\\\label{error:Commands in LaTex}
+It was initially unclear how to include commands in LaTex without executing them when I copied across the text for the leraning journal. I entered 'how to display latex commands in latex' into Google and an Overleaf FAQ page that suggested using  \begin{verbatim}\begin{verbatim} \end{verbatim} \\\\
+\textit{Line breaks}\\\\
+I had initially used  \begin{verbatim}\par\end{verbatim} to create paragraphs but it was not able to create a space between lines. Looking through the FAQ, I found that using the double backslash could do it\\\\
+\textit{Italics}\\\\
+To distinguish the commands to execute, I attempted to italicise slabs. Because of the use of brackets in multiple commands it became very difficult to close the formatting. I gave up for the time being but will reinvestigate.\\\\
+\textit{Table of Contents}\\\\
 I have attempted to create a table of contents using 'Chapters' but it does not seem to be working. As a work around, I have used 'Sections' instead.
 \subsection*{19/8/2019 - 6:04pm}
 \subsubsection*{Computational thinking}
@@ -425,7 +521,7 @@ The opportunities for gain are:
 \item Referencing
 \end{itemize}
 What are the patterns in the problems and how can the solutions be revised to produce a step-by-step guide?
-
+\newpage
 \section{Class notes and other homework}
 \subsection*{12/8/2019 - 8:45pm}
 \subsubsection*{Homework Exercise}
