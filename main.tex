@@ -17,20 +17,26 @@
 \newpage
 
 \section{List of Useful Errors}\par
+\begin{itemize}
+    \item CSV Exports \ref{sec: CSVexport}
+    \item Customised Lists - \ref{sec: Customlist}
+    \item Underscoring when using bullet points - \ref{sec: Underscore}
+    \item Not executing Commands in LaTex - \ref{sec: Commands}
+    \item Paragraphs - \ref{sec: Paragraphs}\par
+\end{itemize}
 
-CSV Exports - \autoref{sec: CSVexport}\par
-Customised Lists - \autoref{sec: Customlist}\par
-Underscoring when using bullet points - \autoref{sec: Underscore}\par
-Not executing Commands in LaTex - \autoref{sec: Commands}\par
-Paragraphs - \autoref{sec: Paragraphs}\par
+
+
+\par
+
 
 \newpage
 \section{Data Carpentry}
-\section*{9/8/2019 - 7:10pm}
+\subsubsection*{9/8/2019 - 7:10pm}
 I’ve decided to get a head start by reading instructions for the first exercise ‘Formatting data tables in Spreadsheets’ and have read the Data Organization in Spreadsheet lessons.\par
 At this stage, from a quick glance and the explanations it seems relatively straight forward but there might be issues that come up.\par
-\section{Data Cleaning Exercise}
-\section*{10/8/2019 – 9:15am}
+\subsection{Data Cleaning Exercise}
+\subsubsection*{10/8/2019 – 9:15am}
 Objective:\par
 Identify errors in SAFI messy.xlsx spreadsheet\par
 Action:
@@ -131,8 +137,8 @@ For the Tanzania sheet:
 \end{itemize}
 Error: None \par
 Result: Now that the data is cleaned, a new sheet will be created and the data can be copied across with columns aligned 
-\section{Metadata Exercise}
-\section*{10/8/2019 – 3:06pm}
+\subsection{Metadata Exercise}
+\subsubsection*{10/8/2019 – 3:06pm}
 I have read the second exercise on Metadata and think I understand what it is asking.
 \par
 Objective:\par
@@ -174,13 +180,13 @@ Click commit to change
 \end{itemize}
 Error: None\par
 Result: File uploaded.
-\section{Dates Exercise}
-\section*{16/08/2019 - 3:01pm}
+\subsection{Dates Exercise}
+\subsubsection*{16/08/2019 - 3:01pm}
 All dates are stored as the number of days in spreadsheet since day X. Dates will often be wrong.\par
 Make sure the month is written as letters.\par
 Put date format in metadata\par
-\section{Data As Dates Exercise}
-\section*{16/8/2019 - 6:16pm}
+\subsection{Data As Dates Exercise}
+\subsubsection*{16/8/2019 - 6:16pm}
 Objective: Separate dates into component\par
 Action:
 \begin{itemize}
@@ -203,8 +209,8 @@ Action:
 \end{itemize}
 Error: None\par
 Result: Dates comes up as 1 November 2017
-\section{Data Validation Exercise}
-\section*{17/8/2019 - 9:18am}
+\subsection{Data Validation Exercise}
+\subsubsection*{17/8/2019 - 9:18am}
 Objective:\par
 Restricting data to numerical values\par
 Action:
@@ -247,8 +253,8 @@ Click ‘Ok’
 Error: None\par
 Results: A yellow box appears when the cursor hovers over the column. The box has a title ‘Acceptable values’ with ‘The villages are God, Ruaca or Chirodzo’ underneath. There is a button that opens a drop down menu of the three options.\par
 When a figure larger than 30 is entered into a cell in the column, a pop message titled ‘Wrong Value’ stating ‘Choose either God, Ruaca or Chirodzo’ appears.
-\section{Exporting data}\label{sec: CSVexport}
-\section*{17/8/2019 - 10:03am}
+\subsection{Exporting data}\label{sec: CSVexport}
+\subsubsection*{17/8/2019 - 10:03am}
 Objective:\par
 Export spreadsheet to .csv\par
 Action:
@@ -273,8 +279,8 @@ Action:
 Error: None\par
 Result: First sheet saved as .csv file\par
 Opening the SAFI dates.csv file in a text editor, the data is organised by rows with the data separated by columns.
-\section{Table of Errors}\label{sec: Customlist}
-\section*{21/8/2019 – 7:05pm}
+\subsection{Table of Errors}\label{sec: Customlist}
+\subsubsection*{21/8/2019 – 7:05pm}
 A conversation on Slack in the \#assignment channel indicated that a table of errors needed to be included in the learning journal and that a cross-reference table of errors should be created.\par
 Links were provided to some guidance and code to create a table. The links were \begin{verbatim}
 https://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/\end{verbatim} and \begin{verbatim}https://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing#Sections\end{verbatim}\par
@@ -300,8 +306,8 @@ Action:\par
 Error: Title of list generates but no contents of the list\par
 Result: Title of list 'Table of Useful Errors' and 'error 1. My first error' generates but no contents of the list\par
 Unclear from the code exactly how to make it work. Given the amount of time it has taken to try to work this out, I will need to just create a Table at the end and come back to cross-referencing later.
-\section{Cross-references}
-\section*{22/8/2019 - 6:50pm}
+\subsection{Cross-references}
+\subsubsection*{22/8/2019 - 6:50pm}
 On the Slack \#assignment channel, Emily Hunt suggested a hack to get around my problems with attempting to generate a customised list using cross-referencing.\par
 Objective: Cross-reference useful errors\par
 Action:
@@ -309,25 +315,75 @@ Action:
 \item Loading the hyperref package by using the command \begin{verbatim}\usepackage{hyperref}\end{verbatim}
 \item Labelling the useful errors, for example 
 \begin{verbatim}\label{sec: CSVexport}\end{verbatim}
-\item Cross-references by using the command \begin{verbatim}\autoref{sec: CSVexport}\end{verbatim}
+\item Cross-references by using the command \begin{verbatim}\ref{sec: CSVexport}\end{verbatim}
 \end{itemize}
+
 Error: None\par
 Result: Hyperlinked Section number generated. Additional text explaining where it goes needs to be added.
+\subsection{Unix Shell}
+\subsection{Navigating Files and Directories Exercise}
+\subsubsection*{22/8/2019 - 9:56pm}
+
+In the command line 'ls' is short for listing which lists files and folders.\par
+
+Objective: Explore ls flags\par
+
+Action:\par
+
+Command ls -l\par
+
+Error: None\par
+
+Result:\par
+
+Action:\par
+
+Command ls -h\par
+
+Error: None\par
+
+Result: \par
+
+Objective: Listing recursively and by time\par
+
+Objective: Absolute versus relative paths\par
+
+Action: \par
+
+Error:\par
+
+Result: cd ~, cd ~/data/..,cd, cd ..\par
+
+Objective: Relative Path Resolution\par
+
+Action: If pwd displays /Users/thing, enter in ls -F ../backup,\par
+
+Error:
+
+None
+
+Result: Option 4 of \begin{verbatim} original/pnas_final/ pnas_sub/\end{verbatim} because 
+
+.. moves up one file directory to users
+/backup would move to /users/backup
+- F would list all the 
+
+
 \newpage
 \section{Proof of Concept}
-\section*{10/8/2019 – 10:57am}
+\subsubsection*{10/8/2019 – 10:57am}
 I’ve started to have a think about the proof of concept for scoping.\par
 There are a range of jobs that will need to be done for my thesis, including a fair few tedious and repetitive tasks. Automating some of those processes would free up time and help a lot.\par
 Given my thesis is about re-nationalisations in Australia, it will involve a fair bit of trawling for information through Trove, government documents, websites and newspapers. From what I can tell to date, there is not much on re-nationalisation in Australia but plenty on problems with privatisation. Identifying examples of re-nationalisations to examine and available sources would be very useful.\par
 There is also the more general tasks of formatting and referencing and task management.
-\section{Jobs, Pains and Gains }
-\section*{12/8/2019 - 9:55pm}
+\subsection{Jobs, Pains and Gains }
+\subsubsection*{12/8/2019 - 9:55pm}
 Reflecting on my scoping project, there are plenty of obvious tasks and pain points for the thesis though the technical solutions are less immediately obvious.\par
 Going through the range of tasks that need to be done for my thesis, there are quite a few. These include developing my research question to data collection to data analysis to writing and editing and referencing. It will be time consuming and I will also need to balance it with other work and personal commitments.\par
 There are some obvious tools that can be used to ease pain that were mentioned during the class such as LaTex, Github, referencing and project management software.\par
 Opportunities for gain would be through automating searches. The limited academic literature on re-nationalisation in Australia means that it would be handy if it could trawl through Trove and other newspaper archives, especially over the last decade. It may be a better source for information than academic journals.
-\section{Creating a Document in LaTex}
-\section*{14/8/2019 - 7:30pm}
+\subsection{Creating a Document in LaTex}
+\subsubsection*{14/8/2019 - 7:30pm}
 I’ve decided to try to use LaTex for my scoping project. I had initially drafted my scoping project on Word but will copy the text over.\par
 I have not used LaTex before but playing around with it, the commands for basic formatting does not look too difficult to remember. I quickly looked at the guides on Overleaf.\par
 I created a new blank document then started from scratch by removing the existing code.\par
@@ -359,20 +415,20 @@ The next step was organising my contents by creating headings, subheadings and b
 Objective: Create section and section headings\par
 Action:
 \begin{verbatim}
-\section*{Planned Thesis Topic}
-\section*{Tasks to be done for thesis}
-\section*{Potential pain points}
-\section*{Data Collection}
-\section*{Data Analysis}
-\section*{Writing}
-\section*{Work Commitments}
-\section*{Potential pain relievers}
-\section*{Managing Tasks and Work Commitments}
-\section*{Writing}
-\section*{Referencing and formatting}
-\section*{Out of scope}
-\section*{Opportunities to make gains}
-\section*{Data Collection}
+\subsubsection*{Planned Thesis Topic}
+\subsubsection*{Tasks to be done for thesis}
+\subsubsection*{Potential pain points}
+\subsubsection*{Data Collection}
+\subsubsection*{Data Analysis}
+\subsubsection*{Writing}
+\subsubsection*{Work Commitments}
+\subsubsection*{Potential pain relievers}
+\subsubsection*{Managing Tasks and Work Commitments}
+\subsubsection*{Writing}
+\subsubsection*{Referencing and formatting}
+\subsubsection*{Out of scope}
+\subsubsection*{Opportunities to make gains}
+\subsubsection*{Data Collection}
 \end{verbatim}
 Error: None\par
 Result: Section and section headings created without numbers\par
@@ -407,8 +463,8 @@ Analysing data may involve (but not be limited to):
 Error: None\par
 Result: Itemised lists generated\par
 The thing that is unclear is how to easy leave a space between lines without needing to specify how large the gap is.
-\section{Uploading Scoping Project}
-\section*{14/8/2019 - 10:30pm}
+\subsection{Uploading Scoping Project}
+\subsubsection*{14/8/2019 - 10:30pm}
 After editing the text of my scoping project, it is now ready to be submitted. I will need to download it as a PDF and also in tex format.\par
 Objective:\par Download LaTex document as PDF\par
 Action:\par
@@ -426,12 +482,12 @@ Error: None\par
 Result: No download.\par
 It wasn’t clear what happened. I tried it a few times but it did not appear on my system even though it appeared to download. I changed browsers from Safari to Chrome and it seemed to work. Unclear why.\par
 The downloaded .tex file was then uploaded to Cloudstor
-\section{Revising Scoping Exercise}
-\section*{16/08/2019 - 7:01pm}
+\subsection{Revising Scoping Exercise}
+\subsubsection*{16/08/2019 - 7:01pm}
 After re-examining the guidance Week 2 in Cloudstor, I did some additional editing of my scoping exercise to remove references to tools and to focus on the jobs, pains, pain relievers, gains and gain opportunities.\par
 The revised version was uploaded by repeating the previous steps I had taken.
-\section{Pasting Text into LaTex}
-\section*{19/8/2019 - 6:04pm}
+\subsection{Pasting Text into LaTex}
+\subsubsection*{19/8/2019 - 6:04pm}
 I've decided to shift my Learning Journal over from Word to Overleaf. I copied and pasted the text from Word into a blank document. During the editing process I have a few errors, some of which I could resolve, others which I have not resolved yet:\par
 \textit{Underscores and bullet points do not work}\label{sec: Underscore}\par
 An attempted list does not work and all the bullet points are in a single line. I tried to work out why this error was occurring and realised it was because of the inclusion of underscores. I resolved the issue by replacing the underscores with a space.\par
@@ -446,8 +502,8 @@ Noticing the warnings in the log and output file, after guidance from the lectur
 To distinguish the commands to execute, I attempted to italicise slabs. Because of the use of brackets in multiple commands it became very difficult to close the formatting. I gave up for the time being but will reinvestigate.\par
 \textit{Table of Contents}\par
 I have attempted to create a table of contents using 'Chapters' but it does not seem to be working. As a work around, I have used 'Sections' instead.
-\section{Computational thinking}
-\section*{19/8/2019 - 6:04pm}
+\subsection{Computational thinking}
+\subsubsection*{19/8/2019 - 6:04pm}
 Applying 'computation thinking' to my scoping exercise to break down pains and gains into smaller parts.\par 
 The pains are:
 \begin{itemize}
@@ -470,8 +526,8 @@ The opportunities for gain are:
 \item Referencing
 \end{itemize}
 What are the patterns in the problems and how can the solutions be revised to produce a step-by-step guide?
-\section{Out of Scope}
-\section*{21/8/2019 - 9:04pm}
+\subsection{Out of Scope}
+\subsubsection*{21/8/2019 - 9:04pm}
 The feedback from my initial scoping exercise was that it did not include what was outside the scope of the project.\par
 I identified a few jobs that I stated were pains that were ultimately jobs requiring human judgement. They were 
 \begin{itemize}
@@ -481,12 +537,12 @@ I identified a few jobs that I stated were pains that were ultimately jobs requi
 \item understanding the broader context to case studies
 \item involving others in proofing and editing
 \end{itemize}
-\section{Decomposing Gains}
-\section*{21/8/2019 - 9:32pm}
+\subsection{Decomposing Gains}
+\subsubsection*{21/8/2019 - 9:32pm}
 I have examined the Gains I included in my scoping exercise to break them down into smaller more manageable tasks. It appears there will be some overlap with Pains.
 
-\section{Computational Analysis for Data Collection}
-\section*{22/8/2019 - 8:01pm}
+\subsection{Computational Analysis for Data Collection}
+\subsubsection*{22/8/2019 - 8:01pm}
 I have decided that the automation of data collection will be the achievable process for my Proof of Concept.\par
 This was on the basis of excluding jobs that involved human judgement and that there may be some more obvious off-the-shelf solutions for other pain relievers and gains. Automating it will have the maximum gain in terms of improved research as well as saving time.\par
 I have broken the job down into the following tasks that need to be stepped out:
@@ -505,15 +561,15 @@ I have broken the job down into the following tasks that need to be stepped out:
 
 \newpage
 \section{Class notes and other homework}
-\section*{12/8/2019 - 8:45pm}
-\subsection*{Homework Exercise}
+\subsubsection*{12/8/2019 - 8:45pm}
+\subsubsubsection*{Homework Exercise}
 We were asked to think of two examples of problem data produced by our discipline. For sociology, the two that come to mind is data from surveys and secondary data sources such as government statistics. I may use neither for my own thesis research proposal so have outlined theoretical issues based on what I know.\par
 While surveys can yield significant data, it depends on the exact questions asked and the available answers. Surveys may not capture how people act but rather what they think or believe they should think.\par
 Quantitative surveys may not have an option that reflects the interviewees actual response. Qualitative surveys provide more options but bad coding of answers by the interviewer may twist responses into something that do not reflect what was said.\par
 Data using secondary sources is often used but there can be problems. Using different datasets that might have different assumptions, for example, trying to use old government statistical data over a long time period when the collection method and calculations have changed.
 
-\section*{16/8/2019 - 2:10pm}
-\subsection*{FOAR705 Week 3 Class}
+\subsubsection*{16/8/2019 - 2:10pm}
+\subsubsubsection*{FOAR705 Week 3 Class}
 Revised date for scoping study. Scoping study uploaded to Cloudstor can be deleted. Contact Brian on DM to get it deleted from iLearn on Slack.\par
 If you don’t define the problem, you won’t know if you have solved it.\par
 Scoping is what is the point of the exercise. The aim is to think about the problem without the context of the solution.\par
@@ -529,8 +585,8 @@ Metadata is a description of your dataset such that someone will be able to add 
 Metadata is not just for spreadsheets e.g. bibliography - where did we look, what search terms did use to we find it. Readme file - file name and description in folder.\par
 Metadata should be in a different file, not a table. If you save something as a CSV, formatting is gone and you cannot have tabs.\par
 
-\section*{16/8/2019 - 3:16pm}
-\subsection*{FOAR705 Week 3 Class - Computational Thinking}
+\subsubsection*{16/8/2019 - 3:16pm}
+\subsubsubsection*{FOAR705 Week 3 Class - Computational Thinking}
 
 Computation thinking:\par
 Decomposition - Taking a complex task and breaking it down into what needs to be done\par
@@ -542,8 +598,8 @@ Properly formatted references and bibliography exercise. Tasks to be done?
 \item Getting the correct information in
 \end{itemize}
 Humans are good at collecting data, summarisation is tedious.
-\section*{16/8/2019 - 3:16pm} 
-\subsection*{FOAR705 Week 3 Class - Project Management Notes}
+\subsubsection*{16/8/2019 - 3:16pm} 
+\subsubsubsection*{FOAR705 Week 3 Class - Project Management Notes}
 \begin{itemize}
 \item Waterfall vs agile approach
 \item Agile manifesto - not fetishing the process
