@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
 \usepackage{lipsum}
+\usepackage{graphicx}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 
@@ -320,54 +321,67 @@ Action:
 
 Error: None\par
 Result: Hyperlinked Section number generated. Additional text explaining where it goes needs to be added.
-\subsection{Unix Shell}
+\section{Unix Shell}
 \subsection{Navigating Files and Directories Exercise}
-\subsubsection*{22/8/2019 - 9:56pm}
+\subsubsection*{24/8/2019 - 9:56pm}
 
 In the command line 'ls' is short for listing which lists files and folders.\par
 
-Objective: Explore ls flags\par
-
+Objective:\par
+Explore ls flags\par
 Action:\par
-
 Command ls -l\par
-
 Error: None\par
-
-Result:\par
-
+Result:
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot.png}
+    \label{fig:ls-l}
+\end{figure}
+ \par
 Action:\par
-
 Command ls -h\par
-
 Error: None\par
-
 Result: \par
-
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot2.png}
+    \label{fig:ls-h}
+\end{figure}
+ \par
 Objective: Listing recursively and by time\par
-
+Action:\par Enter ls -R -t \par
+Error: None\par
+Result: The files and directories are sorted by the time of the last change\par
 Objective: Absolute versus relative paths\par
-
-Action: \par
-
-Error:\par
-
-Result: cd ~, cd ~/data/..,cd, cd ..\par
-
+Action: Test the following commands to determine what will return to the home directory of /Users/amanda/ from /Users/amanda/data.\par
+\begin{itemize}
+\item cd .
+\item cd /
+\item cd /home/amanda
+\item cd ../..
+\item cd ~
+\item cd home
+\item cd ~/data/..
+\item cd
+\item cd ..
+\end{itemize}
+\par
+Error: cd . goes to the current directory, cd / goes to the root directory, cd /home/amanda goes to another directory, cd ../.. goes to /Users, cd home would go into folder name home\par
+Result: cd ~, cd ~/data/..,cd, cd .. are commands that will return to the home directory of /Users/amanda/\par
 Objective: Relative Path Resolution\par
-
-Action: If pwd displays /Users/thing, enter in ls -F ../backup,\par
-
-Error:
-
-None
-
+Action: If pwd displays /Users/thing, enter command line ls -F ../backup\par
+Error: None\par
 Result: Option 4 of \begin{verbatim} original/pnas_final/ pnas_sub/\end{verbatim} because 
-
-.. moves up one file directory to users
-/backup would move to /users/backup
-- F would list all the 
-
+\begin{itemize}
+\item .. moves up one file directory to users
+\item /backup would move to /users/backup
+\item - F would be a listing of files and folders
+\end{itemize}
+Objective: ls reading comprehension\par
+Action: If pwd displays /Users/backup, enter command lines ls -r -F /Users/backup or ls -r -F 
+Error: None\par
+Result: \begin{verbatim} pnas_sub/ pnas_final/ original/\end{verbatim}\par
 
 \newpage
 \section{Proof of Concept}
@@ -561,15 +575,15 @@ I have broken the job down into the following tasks that need to be stepped out:
 
 \newpage
 \section{Class notes and other homework}
-\subsubsection*{12/8/2019 - 8:45pm}
-\subsubsubsection*{Homework Exercise}
+\subsection*{12/8/2019 - 8:45pm}
+\subsubsection*{Homework Exercise}
 We were asked to think of two examples of problem data produced by our discipline. For sociology, the two that come to mind is data from surveys and secondary data sources such as government statistics. I may use neither for my own thesis research proposal so have outlined theoretical issues based on what I know.\par
 While surveys can yield significant data, it depends on the exact questions asked and the available answers. Surveys may not capture how people act but rather what they think or believe they should think.\par
 Quantitative surveys may not have an option that reflects the interviewees actual response. Qualitative surveys provide more options but bad coding of answers by the interviewer may twist responses into something that do not reflect what was said.\par
 Data using secondary sources is often used but there can be problems. Using different datasets that might have different assumptions, for example, trying to use old government statistical data over a long time period when the collection method and calculations have changed.
 
-\subsubsection*{16/8/2019 - 2:10pm}
-\subsubsubsection*{FOAR705 Week 3 Class}
+\subsection*{16/8/2019 - 2:10pm}
+\subsubsection*{FOAR705 Week 3 Class}
 Revised date for scoping study. Scoping study uploaded to Cloudstor can be deleted. Contact Brian on DM to get it deleted from iLearn on Slack.\par
 If you don’t define the problem, you won’t know if you have solved it.\par
 Scoping is what is the point of the exercise. The aim is to think about the problem without the context of the solution.\par
@@ -585,8 +599,8 @@ Metadata is a description of your dataset such that someone will be able to add 
 Metadata is not just for spreadsheets e.g. bibliography - where did we look, what search terms did use to we find it. Readme file - file name and description in folder.\par
 Metadata should be in a different file, not a table. If you save something as a CSV, formatting is gone and you cannot have tabs.\par
 
-\subsubsection*{16/8/2019 - 3:16pm}
-\subsubsubsection*{FOAR705 Week 3 Class - Computational Thinking}
+\subsection*{16/8/2019 - 3:16pm}
+\subsubsection*{FOAR705 Week 3 Class - Computational Thinking}
 
 Computation thinking:\par
 Decomposition - Taking a complex task and breaking it down into what needs to be done\par
@@ -598,8 +612,8 @@ Properly formatted references and bibliography exercise. Tasks to be done?
 \item Getting the correct information in
 \end{itemize}
 Humans are good at collecting data, summarisation is tedious.
-\subsubsection*{16/8/2019 - 3:16pm} 
-\subsubsubsection*{FOAR705 Week 3 Class - Project Management Notes}
+\subsection*{16/8/2019 - 3:16pm} 
+\subsubsection*{FOAR705 Week 3 Class - Project Management Notes}
 \begin{itemize}
 \item Waterfall vs agile approach
 \item Agile manifesto - not fetishing the process
