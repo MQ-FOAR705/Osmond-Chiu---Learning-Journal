@@ -24,6 +24,8 @@
     \item Underscoring when using bullet points - \ref{sec: Underscore}
     \item Not executing Commands in LaTex - \ref{sec: Commands}
     \item Paragraphs - \ref{sec: Paragraphs}\par
+    \item Removing folders in Unix - \ref{sec: rm}\par
+    \item Moving multple files in Unix - \ref{sec: multiplefilenames}\par
 \end{itemize}
 
 
@@ -336,7 +338,7 @@ Result:
 \begin{figure}[htp]
     \centering
     \includegraphics[width=10cm]{Screenshot.png}
-    \label{fig:ls-l}
+    \label{fig:ls-1}
 \end{figure}
  \par
 Action:\par
@@ -346,7 +348,7 @@ Result: \par
 \begin{figure}[htp]
     \centering
     \includegraphics[width=10cm]{Screenshot2.png}
-    \label{fig:ls-h}
+    \label{fig:ls-2}
 \end{figure}
  \par
 Objective: Listing recursively and by time\par
@@ -382,6 +384,153 @@ Objective: ls reading comprehension\par
 Action: If pwd displays /Users/backup, enter command lines ls -r -F /Users/backup or ls -r -F 
 Error: None\par
 Result: \begin{verbatim} pnas_sub/ pnas_final/ original/\end{verbatim}\par
+
+Objective: Creating files\par
+Action:\par
+Enter command \begin{verbatim}touch my_file.txt\end{verbatim}\par
+Enter command ls -l\par
+Error: None\par
+Result: \par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot3.png}
+    \label{fig:ls-3}
+\end{figure}
+
+A file with nothing was created. It would be useful when there are programs that only enter output into existing files.
+
+\subsection{Working with Files and Directories}
+\subsubsection*{24/8/2019 - 11:47am}
+
+If sucrose.dat and maltose.dat are in analysed/ but you want to move it into the current folder one up from analysed/ what is the command
+
+\begin{verbatim}$ mv ___/sucrose.dat  ___/maltose.dat ___\end{verbatim}
+
+Objective: Moving to the current folder\par
+Action:\par
+Command \begin{verbatim}$ mv ../sucrose.dat  ../maltose.dat ___\end{verbatim} \par
+Error: None\par
+Result: .. is the folder up so it would be moved from analysed to the folder up from it.\par
+
+
+Objective: Rename statstics.txt\par
+Action:\par
+Command mv statstics.txt statistics.txt\par
+Error: None \par
+Result: File renamed statistics.txt in current folder. Other options move or copy files rather than rename it.\par
+
+Objective: Moving and copying\par
+Action:\par
+Command \begin{verbatim}$ pwd
+/Users/jamie/data
+$ ls
+proteins.dat
+$ mkdir recombine
+$ mv proteins.dat recombine/
+$ cp recombine/proteins.dat ../proteins-saved.dat
+$ ls\par\end{verbatim}
+Error: None \par
+Result: Only the folder recombine will be slown as proteins-saved.dat was saved in Users/jamie .\par
+
+Objective: Using rm safely\par
+Action:\par
+Command\begin{verbatim}rm -i thesis_backup/quotations.txt\end{verbatim}\par
+Error: None/par
+Result:
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot4.png}
+    \label{fig:ls-4}
+\end{figure}
+
+Objective: Using rm safely\label{sec: rm}\par 
+Action:\par
+Command\begin{verbatim}rm -i rm thesis\end{verbatim}\par
+Error: Cannot remove 
+Result:
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot5.png}
+    \label{fig:ls-5}
+\end{figure}
+
+Folders cannot be removed by rm but can be with rm -r\par
+
+Objective: Copy with multiple file names\par
+Action:\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot6.png}
+    \label{fig:ls-6}
+\end{figure}
+Error: None
+Result: Files copied into folder\par
+
+Objective: Copy with three file names\par\label{sec: multiplefilenames}
+Action:\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot7.png}
+    \label{fig:ls-7}
+\end{figure}
+
+Error: Result not matching solution.\par
+Result: cp: target ‘morse.txt’ is not a directory did not appear.\par
+
+Objective: List filenames using a pattern\par
+Action:\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot8.png}
+    \label{fig:ls-8}
+\end{figure}
+Error: None\par
+Result: ls *t?ne.* produces output that matches ethane.pdb methane.pdb\par
+
+Objective:\par Fill in blanks for wildcard exercise \par
+Action:\par Enter commands\par
+\begin{verbatim}$ cp *dataset* backup/datasets
+$ cp 2015-11-* send_to_bob/all_november_files/
+$ cp 2015-*-23-dataset* send_to_bob/all_datasets_created_on_a_23rd/\end{verbatim}
+Error: None\par
+Result: Files copied across.\par
+
+Objective:\par Organising Files and Directories Exercise.\par
+Action:\par
+Command mv *.dat analyzed/\par
+Error: None
+Result: Files fructose.dat sucrose.dat moved to analysed/\par
+Objective:\par Reproduce a folder structure.\par
+Action:\par
+
+Option 1:
+\begin{verbatim}$ mkdir 2016-05-20
+$ mkdir 2016-05-20/data
+$ mkdir 2016-05-20/data/processed
+$ mkdir 2016-05-20/data/raw\end{verbatim}
+
+Option 2
+\begin{verbatim}$ mkdir 2016-05-20
+$ cd 2016-05-20
+$ mkdir data
+$ cd data
+$ mkdir raw processed\end{verbatim}
+
+Option 3
+\begin{verbatim}$ mkdir 2016-05-20/data/raw
+$ mkdir 2016-05-20/data/processed\end{verbatim}
+
+Option 4
+\begin{verbatim}$ mkdir 2016-05-20
+$ cd 2016-05-20
+$ mkdir data
+$ mkdir raw processed\end{verbatim}
+
+Error: Option 3 cannot create the two folders./par
+
+Result: Option 1 and 2 produce the results, Option 3 is an error, Option 4 produces raw and processed in 2016-05-20, not in data./par
 
 \newpage
 \section{Proof of Concept}
