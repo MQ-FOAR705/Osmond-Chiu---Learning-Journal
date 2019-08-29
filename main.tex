@@ -17,7 +17,7 @@
 \tableofcontents
 \newpage
 
-\section{List of Useful Errors}\par
+\section{List of Errors}\par
 \begin{itemize}
     \item CSV Exports \ref{sec: CSVexport}
     \item Customised Lists - \ref{sec: Customlist}
@@ -722,16 +722,22 @@ I have broken the job down into the following tasks that need to be stepped out:
 \item Producing metadata
 \item Deciding if the process needs to be repeated because the research aim is not met
 \end{itemize}
-\subsection{Elaboration}
+\subsection{Elaboration - Data Collection}
 \subsubsection*{26/8/2019 - 9:00pm}
 
 Based on the algorithm, the steps that technology could assist with are using the tools for research, saving sources, organising sources and producing metadata.\par
 
 Because of the limited information in journals, I have decided to focus the elaboration on searching newspaper articles. The parameters of keywords in article text and restricting it to Australian newspapers should be sufficient.\par
 
-I know an API exists for Trove which may make a pipeline easier but I am not sure what customised script will be needed. Also the more recent newspaper archives are in ProQuest which it is unclear if there is an API. There is more information about what privatisation occurred in the past 30 years which makes it easier to navigate even if there is no API.\par
+I know an API exists for Trove which may make a pipeline easier but I am not sure what customised script will be needed. Also the more recent newspaper archives are in ProQuest or Factiva which it is unclear if there is an API or if there will be copyright issues. There is more information about what privatisation occurred in the past 30 years which makes it easier to navigate even if there is no API.\par
 
 I am less clear about exporting, saving and organising the sources. I imagine script with customised command lines can do this but need further guidance.\par
+
+\subsection{Elaboration - Bibliographic software}
+\subsubsection*{22/8/2019 - 8:01pm}
+
+Reflecting on my initial Proof of Concept, I might be limited in what I can do. A conversation on the Slack channel suggested a backup so I have outlined using bibliographic software to organise sources.\par
+Keeping organising sources by including tags and notes would minimise re-reading and also make it easier to cite and refer.\par
 
 \newpage
 \section{Class notes and other homework}
@@ -783,5 +789,22 @@ Humans are good at collecting data, summarisation is tedious.
 \item Kanban board can break down sub-tasks into what you need to do daily and can complement Gantt charts.
 \item Kanban can limit your work in progress.
 \end{itemize}
+
+\subsection*{24/8/2019 - 5:34pm} 
+\subsubsection*{Adding Images to LaTex} 
+
+The use of Bash means I need to screenshot results rather than try to type it out.
+
+Overleaf provided some instructions and code for it at \begin{verbatim}https://www.overleaf.com/learn/how-to/Including_images_on_Overleaf\end{verbatim} 
+
+Firstly the screenshot needs to be uploaded before the following code is entered: 
+
+\begin{verbatim}\begin{figure}[htp]
+    \centering
+    \includegraphics[width=xcm]{imagename.png}
+    \label{fig:imagename}
+\end{figure}
+\end{verbatim}
+
 
 \end{document}
