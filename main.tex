@@ -25,7 +25,7 @@
     \item Not executing Commands in LaTex - \ref{sec: Commands}
     \item Paragraphs - \ref{sec: Paragraphs}\par
     \item Removing folders in Unix - \ref{sec: rm}\par
-    \item Moving multple files in Unix - \ref{sec: multiplefilenames}\par
+    \item Moving multiple files in Unix - \ref{sec: multiplefilenames}\par
 \end{itemize}
 
 
@@ -806,8 +806,84 @@ Objective: Debugging script
 
 Explanation: The error is datfile because it is a typo so echo would not make it print anything
 
+\subsection{Finding Things}
+\subsubsection*{31/8/2019 - 6:51pm}
+
+Objective: Using Grep
+
+Action: grep -w "of" haiku.txt
+
+Result: "and the presence of absence"
+
+Explanation: Option Three is correct because the use of -w limits it to the word "of" rather than a word that includes of
+
+\subsubsection*{31/8/2019 - 9:13pm}
+
+Objective: Put these commands and pipes in the right order to track species 
+
+Action: 
+
+\begin{verbatim} grep -w $1 -r $2 | cut -d : -f 2 | cut -d , -f 1,3  > $1.txt \end{verbatim}
+
+Objective: Count how many times the sisters are mentioned in LittleWomen.txt 
+
+Action: 
+
+cd data-shell/writing/data/
+
+\begin{verbatim}
+    for sis in Jo Meg Beth Amy
+do
+	echo $sis:
+	grep -ow $sis LittleWomen.txt | wc -l
+done
+\end{verbatim}
+
+Result:
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot24.png}
+    \label{fig:ls-24}
+\end{figure}
+
+Jo was mentioned the most times.
+
+Objective: Matching and subtracting to find all files in /data whose names end in s.txt (e.g., animals.txt or planets.txt), but do not contain the word net
+
+Action:
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot25.png}
+    \label{fig:ls-25}
+\end{figure}
+
+Result: Option 1 is the only correct option.
+
+Option 2 expands the shell so find doesn't work properly.
+
+Option 3 searches for file contents for not having 'temp'
+
+
+Objective: Explain the following pipeline command
+
+\begin{verbatim}
+wc -l $(find . -name '*.dat') | sort -n    
+\end{verbatim}
+
+Explanation: Line count for all .dat files in directory and subdirectories sorted numerically
+
+
+Objective: Finding Files With Different Properties
+
+Explanation: The command would be find ./ -type f -mtime -1 -user ahmed.
+
+Find . would search any name with -type f specifying file and mtime -1 in the last day with -user being ahmed.
+
 
 \newpage
+
 \section{Proof of Concept}
 \subsubsection*{10/8/2019 – 10:57am}
 I’ve started to have a think about the proof of concept for scoping.\par
