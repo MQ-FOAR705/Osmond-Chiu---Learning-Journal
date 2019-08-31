@@ -532,6 +532,281 @@ Error: Option 3 cannot create the two folders./par
 
 Result: Option 1 and 2 produce the results, Option 3 is an error, Option 4 produces raw and processed in 2016-05-20, not in data./par
 
+\subsection{Pipes and Filters}
+\subsubsection*{30/8/2019 - 8:20pm}
+
+Objective: Distinguish between sort and sort n 
+
+Action: Command sort n on a file with the following lines:
+\begin{itemize}
+\item 10 
+\item 2
+\item 19
+\item 22
+\item 6
+\end{itemize}
+Error: None
+
+Result:\par
+\begin{itemize}
+\item 2
+\item 6
+\item 10
+\item 19
+\item 22
+\end{itemize}
+Only using sort will mean that it does not get sorted numerically and instead it will by based on the first digit i.e.:\par
+\begin{itemize}
+\item 10
+\item 19
+\item 2
+\item 22
+\item 6
+\end{itemize}
+Objective: Identify what the double use of greater than symbols does\par
+
+Action:\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot9.png}
+    \label{fig:ls-9}
+\end{figure}
+Error: None \par
+Result: Compared to a single greater than symbol, a double use will not overwrite but add additional lines into documents
+
+Objective: Appending data
+
+Action:
+
+Command \begin{verbatim}head -n 3 animals.txt > animals-subset.txt\end{verbatim}
+
+Command \begin{verbatim}tail -n 2 animals.txt >> animals-subset.txt\end{verbatim}
+
+Error: None
+
+Result: animals-subset.txt will be the first three lines and last two lines from animals.txt or Option 3.\par
+
+Objective: Piping Commands Together\par
+
+Action:\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot10.png}
+    \label{fig:ls-10}
+\end{figure}
+Error: None \par
+
+Result: Option 4 has the least number of lines
+
+Objective: Determine what cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt results in\par
+Action:\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot11.png}
+    \label{fig:ls-11}
+\end{figure}
+Error: None \par
+
+Result: The first five lines of the file then the bottom three lines of those five lines then it is sorted in reverse order with that output sent to the file.\par
+
+Objective: Construct pipeline to filter out adjacent matching lines in a file
+
+Action:\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot12.png}
+    \label{fig:ls-12}
+\end{figure}
+
+Result: Duplicates of rabbit removed
+
+Objective: Determine which pipe to count number of times
+
+Action:\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot13.png}
+    \label{fig:ls-13}
+\end{figure}
+
+Error: None
+
+Result: Option 4 is the correct one because cut -d breaks up the two columns, -f 2 animals.txt then chooses the 2nd column. It then needs sort for the adjacent line count command of uniq -c
+
+Objective: Wildcat expressions as alternative to  *[AB].txt
+
+Action:
+
+Commands ls *A.txt and ls *B.txt  
+
+Result: The output from tls *A.txt and ls *B.txt are separated because there are two commands.
+
+If there were no *A.txt or *B.txt files, it would generate an error.
+
+Objective: Removing unneeded files if raw files end in .dat and the processed files end in .txt
+
+Action: Command rm *.txt
+
+Error: None
+
+Result: All the processed files ending in .txt would be removed and all the raw files of .dat would remain
+
+rm ?.txt would only remove .txt with one character names, rm * .txt would delete all files and a .txt named file, rm *.* would delete all files.
+
+
+\subsection{Loops}
+\subsubsection*{30/8/2019 - 9:44pm}
+
+Objective: Variables in Loops
+
+Action:\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot14.png}
+    \label{fig:ls-14}
+\end{figure}
+
+Error: None
+
+Result: The first code lists all files ending in .pdb and loops the action it whereas the second code loops the listing of a file
+
+Objective: Limiting Set of Files 
+
+Action:\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot15.png}
+    \label{fig:ls-15}
+\end{figure}
+
+Error: None
+
+Result: Only cubane.pdb is listed after first code run and only cubane.pdb and octane.pdb will be listed after second code run.
+
+
+Objective: Answer Saving a File to a Loop - Part 1 Exercise\par
+Action:\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot16.png}
+    \label{fig:ls-16}
+\end{figure}
+
+Error: None
+
+Result: Files  cubane.pdb, ethane.pdb, methane.pdb, octane.pdb, pentane.pdb and propane.pdb are printed. The loop and single greater than means overriding until the text from propane.pdb is the final text saved to a file called alkanes.pdb.
+
+Objective: Answer Saving a File to a Loop - Part 1 Exercise\par
+Action:\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot17.png}
+    \label{fig:ls-17}
+\end{figure}
+
+Error: None
+
+Result: Files cubane.pdb, ethane.pdb, methane.pdb, octane.pdb, pentane.pdb and propane.pdb are concatenated and saved to a file called all.pdb with no overriding of text.
+
+Objective: Identifying Difference (Dry Run Exercise)\par
+Action: Examine the two scripts\par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot18.png}
+    \label{fig:ls-18}
+\end{figure}
+
+Result: The first script will run code, directing output whereas the second script will print everything within the quotation marks. The second script will do the dry run.
+
+Objective: Nested Loops\par
+Action: \par
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot19.png}
+    \label{fig:ls-19}
+\end{figure}
+
+Result: For each value listed in species loop, the other look through the list of temperatures, and has created a new directory for each combination.
+
+\subsection{Shell Scripts}
+\subsubsection*{31/8/2019 - 4:27pm}
+
+Objective: List unique species
+
+Action:
+
+Command nano species.sh
+Enter in the following commands
+
+\begin{verbatim}
+for file in $@
+do
+	echo "Unique species in $file:"
+	# Extract species names
+	cut -d , -f 2 $file | sort | uniq
+done \end{verbatim}
+Save species.sh
+
+In data-shell/data/animal-counts/ run command bash species.sh *.*
+
+Result:
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot20.png}
+    \label{fig:ls-20}
+\end{figure}
+
+Objective: Explain Why Record Commands in the History Before Running Them?
+
+Explanation: A command of history | tail -n 5 > recent.sh would save the last five lines of script. This would be handy in case the command causes a problem such as a crash. Recording it after may lose it.
+
+Objective: Variable in shell scripts
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot21.png}
+    \label{fig:ls-21}
+\end{figure}
+
+Explanation: The correct answer is Option 2 as \$2 is 1 and \$1 is '*.pdb' and \$3 is 1 and \$1 is '*.pdb'. 
+
+The command would then be head -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
+and tail -n 1 cubane.pdb ethane.pdb octane.pdb pentane.pdb propane.pdb
+
+Objective: Find the Longest File With a Given Extension
+
+Explanation: The following command in longest.sh would  print the name of the .pdb file in /tmp/data that has the most lines if bash longest.sh /tmp/data pdb was used.
+
+\begin{verbatim}wc -l $1/*.$2 | sort -n | tail -n 2 | head -n 1\end{verbatim}
+
+Word count organised by number of lines in /tmp/data/*.pdb sorted numerically then filtered by last two lines of output then the top one.
+
+Objective: Script reading comprehension
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot22.png}
+    \label{fig:ls-22}
+\end{figure}
+
+Explanation: Script 1 prints out a list of all files containing a dot in their name. 
+
+Script 2 prints the contents of the first 3 .pdb files. 
+
+Script 3 prints out all the script, followed by .pdb
+
+Objective: Debugging script
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot23.png}
+    \label{fig:ls-23}
+\end{figure}
+
+Explanation: The error is datfile because it is a typo so echo would not make it print anything
+
+
 \newpage
 \section{Proof of Concept}
 \subsubsection*{10/8/2019 – 10:57am}
