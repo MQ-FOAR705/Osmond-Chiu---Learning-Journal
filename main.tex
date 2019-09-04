@@ -26,6 +26,8 @@
     \item Paragraphs - \ref{sec: Paragraphs}\par
     \item Removing folders in Unix - \ref{sec: rm}\par
     \item Moving multiple files in Unix - \ref{sec: multiplefilenames}\par
+    \item Reproducing Folder Structure - \ref{sec: ReproduceFolder}
+    \item Program Security and Privacy Settings - \ref{sec: SecurityPrivacy}
 \end{itemize}
 
 
@@ -528,9 +530,9 @@ $ cd 2016-05-20
 $ mkdir data
 $ mkdir raw processed\end{verbatim}
 
-Error: Option 3 cannot create the two folders./par
+Error: Option 3 cannot create the two folders.\label{sec: ReproduceFolder}\par
 
-Result: Option 1 and 2 produce the results, Option 3 is an error, Option 4 produces raw and processed in 2016-05-20, not in data./par
+Result: Option 1 and 2 produce the results, Option 3 is an error, Option 4 produces raw and processed in 2016-05-20, not in data.\par
 
 \subsection{Pipes and Filters}
 \subsubsection*{30/8/2019 - 8:20pm}
@@ -598,7 +600,9 @@ Error: None \par
 
 Result: Option 4 has the least number of lines
 
-Objective: Determine what cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt results in\par
+Objective: \begin{verbatim}
+ 
+Determine what cat animals.txt | head -n 5 | tail -n 3 | sort -r > final.txt results in\end{verbatim}\par
 Action:\par
 \begin{figure}[htp]
     \centering
@@ -742,7 +746,6 @@ Enter in the following commands
 for file in $@
 do
 	echo "Unique species in $file:"
-	# Extract species names
 	cut -d , -f 2 $file | sort | uniq
 done \end{verbatim}
 Save species.sh
@@ -884,7 +887,7 @@ Find . would search any name with -type f specifying file and mtime -1 in the la
 
 \newpage
 
-\section{Proof of Concept}
+\section{Proof of Concept - Scoping}
 \subsubsection*{10/8/2019 – 10:57am}
 I’ve started to have a think about the proof of concept for scoping.\par
 There are a range of jobs that will need to be done for my thesis, including a fair few tedious and repetitive tasks. Automating some of those processes would free up time and help a lot.\par
@@ -1016,6 +1019,9 @@ Noticing the warnings in the log and output file, after guidance from the lectur
 To distinguish the commands to execute, I attempted to italicise slabs. Because of the use of brackets in multiple commands it became very difficult to close the formatting. I gave up for the time being but will reinvestigate.\par
 \textit{Table of Contents}\par
 I have attempted to create a table of contents using 'Chapters' but it does not seem to be working. As a work around, I have used 'Sections' instead.
+
+\section{Proof of Concept - Elaboration}
+
 \subsection{Computational thinking}
 \subsubsection*{19/8/2019 - 6:04pm}
 Applying 'computation thinking' to my scoping exercise to break down pains and gains into smaller parts.\par 
@@ -1123,6 +1129,125 @@ Based on this, it seems that a text analysis tool might not be useful. Using a t
 An open source tool with both the tagging and text analysis features is Open Semantic.
 
 It is unclear from a search of its website and via search engines of the terms bibliography, referencing and citations, as to whether it can be exported. It seems likely that a bibliography tool will still be needed.
+
+\subsection{Elaboration - Organising Data}
+\subsubsection*{3/9/2019 - 9:15pm}
+
+
+Objective: Test Open Semantic Search
+
+Action:
+\begin{itemize}
+\item Downloaded the installation first
+\item Download Virtual Box
+\item Install Virtual Box
+\end{itemize}
+
+Error: System Extension Blocked
+
+Result: Virtual Box still appears to work
+
+Action: 
+\begin{itemize}
+\item Open Virtual Box
+\item Click file then Import Appliance
+\item Select Open Semantic Search.ova and click import
+\item Once import complete, go to settings and add folder "Thesis"
+\end{itemize}
+
+Error:\label{sec: SecurityPrivacy}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot27.png}
+    \label{fig:ls-27}
+\end{figure}
+
+Result:
+
+Open Semantic Search does not work and Virtual Box crashes. It will require more testing to work out how the problem is fixed.
+
+Action:
+
+\begin{itemize}
+\item Google "kernel driver not installed (rc=-1908) mac"
+\item Click on
+https://medium.com/@Aenon/mac-virtualbox-kernel-driver-error-df39e7e10cd8 and read instructions
+\item Go to System Preferences then Security \& Privacy then click Allow
+\item Restart VirtualBox
+\item Ensure the Open Semantic Search is selected as a tool then click the start icon
+\end{itemize}
+
+Error: Screen is stuck on "Waiting until Solr server is up and loaded the core" for over half an hour. 
+
+Result: Open Semantic Search is running but it is a slow lagging program. It is unclear if it is due to my older laptop or another issue.
+
+Objective: Test Hypothes.is
+
+Action:
+\begin{itemize}
+\item Download Chrome extension
+\item Set up Hypothes.is account
+\item Search for PDF document on privatisations
+\item Click Hypothes.is icon on browser toolbar to activate
+\item Highlight lines, tag and add notes
+\item Check Hypothes.is account to see if data is transferred across.
+\end{itemize}
+
+Error: None
+
+Result:
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot28.png}
+    \label{fig:ls-28}
+\end{figure}
+
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot29.png}
+    \label{fig:ls-29}
+\end{figure}
+
+The highlighted lines and tags transferred across to Hypothes.is.
+
+Hypothes.is is limited to the web which means I will not be able to tag PDFs I have downloaded from the web. This might be a problem for any newspaper articles downloaded from Factiva, ProQuest or journal articles.
+
+Based on the documentation at \begin{verbatim} https://www.zotero.org/support/adding_items_to_zotero\end{verbatim} There does not appear to be an easy way to transfer saved files to Zotero or other bibliography software. It can be exported using an API at https://jonudell.info/h/facet/?max=50
+
+Objective: Test Zotero
+
+Action:
+
+\begin{itemize}
+\item Install Zotero and browser add-on
+\item Open Zotero
+\item Create new collection 'Thesis'
+\item Go to Macquarie Library website and search for 
+\item Download Bibtex for book
+\item Click File then Import Bibtex
+\item Move imported reference to collection
+\item Tag and add a note to
+\item Go to PDF in browser and click on toolbar icon
+\item Select collection, add tags and accept
+\item Repeat process with a HTML webpage
+\end{itemize}
+
+Result:
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot30.png}
+    \label{fig:ls-30}
+\end{figure}
+
+The importation of Bibtex files worked but data will need to be cleaned e.g. title.
+
+The webpage and PDF were added to Zotero via the browser but without a lot of citation information. This will need to be manually added. 
+
+Searches can be made via the tags and links can be made between referred sources.
 
 \newpage
 \section{Class notes and other homework}
