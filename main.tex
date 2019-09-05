@@ -28,6 +28,7 @@
     \item Moving multiple files in Unix - \ref{sec: multiplefilenames}\par
     \item Reproducing Folder Structure - \ref{sec: ReproduceFolder}
     \item Program Security and Privacy Settings - \ref{sec: SecurityPrivacy}
+    \item Colons in Unix - \ref{sec: Colon}
 \end{itemize}
 
 
@@ -739,7 +740,7 @@ Objective: List unique species
 
 Action:
 
-Command nano species.sh
+Command nano species.sh\par 
 Enter in the following commands
 
 \begin{verbatim}
@@ -820,13 +821,11 @@ Result: "and the presence of absence"
 
 Explanation: Option Three is correct because the use of -w limits it to the word "of" rather than a word that includes of
 
-\subsubsection*{31/8/2019 - 9:13pm}
+\subsubsection*{31/8/2019 - 9:13pm}\label{sec: Colon}
 
 Objective: Put these commands and pipes in the right order to track species 
 
-Action: 
-
-\begin{verbatim} grep -w $1 -r $2 | cut -d : -f 2 | cut -d , -f 1,3  > $1.txt \end{verbatim}
+Error: Unclear what the purpose of the colon is or what it's impact is
 
 Objective: Count how many times the sisters are mentioned in LittleWomen.txt 
 
