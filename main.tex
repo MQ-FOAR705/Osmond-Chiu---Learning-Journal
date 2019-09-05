@@ -1249,6 +1249,106 @@ The webpage and PDF were added to Zotero via the browser but without a lot of ci
 Searches can be made via the tags and links can be made between referred sources.
 
 \newpage
+\section{OpenRefine}
+\subsection*{5/9/2019 - 7:30pm}
+\subsubsection*{Using Facets}
+
+Using facets, a number of errors were identified in the 'village' column:
+\begin{itemize}
+\item Chirdozo appears to be a mispelling of Chirodzo.
+\item Ruca seems to be a mispelt Ruaca.
+\item Ruaca - Nhamuenda and Ruaca-Nhamuenda. It is unclear if this is suppsoed to be Ruaca
+\item The entry 49 is an error but unclear what it is.
+\end{itemize}
+
+Objective: Facets Eeercise
+
+1. Using faceting, find out how many different interviewdate values there are in the survey results.
+
+19 different values
+
+2. Is the column formatted as Text or Date?
+
+Text
+
+3. Use faceting to produce a timeline display for interviewdate. You will need to use Edit cells > Common transforms > To date to convert this column to dates.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot31.png}
+    \label{fig:ls-31}
+\end{figure}
+
+
+4. During what period were most of the interviews collected?
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot32.png}
+    \label{fig:ls-32}
+\end{figure}
+
+Mostly November 2016
+
+Objective: Transform data in items owned column
+
+Action:
+
+Click on Column Name, Edit Cells Then Transform\par
+Enter value.replace("'", "")\par
+Click ok\par
+Repeat process but enter value.replace("]", "")\par
+Repeat process but enter value.replace(" ", "")\par
+
+Result: Removal of brackets, single quote marks and spaces
+
+
+Objective: Use Custom Text Facet
+
+Action:
+
+Choose Facet then Custom text facet for itemsowned column
+In the Expression box, type value.split(";").
+Click OK.
+
+Result:
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=10cm]{Screenshot33.png}
+    \label{fig:ls-33}
+\end{figure}
+
+
+Mobile phones and radios are most common while cars and computers are least common.
+
+Objective: Determine Which month(s) were farmers more likely to lack food?
+
+Action: Choose Facet then Custom text and type in value.replace("[", "").replace("]", "").replace(" ", "").replace("'", "")
+
+Result: November with 71
+
+Objective: Answer Filtering Exercise Questions
+
+1. What roof types are selected by this procedure?
+
+The roof types selected by filtering using 'mabat' are mabatipitched and mabatisloping.
+
+2. How would you restrict this to only one of the roof types?
+
+You need more letters in the filter to restrict to a single roof type.
+
+Objective: Answer Sort Exercise
+
+Sort the data by gpsAltitude. Do you think the first few entries may have incorrect altitudes?.
+
+Result: The first few entries have a value of 0 which may be used incorrectly as a missing value.
+
+Objective: Identify what Village 49 is Exercise
+
+Result: Village 49 is Chirodzo as it matched the GPS coordinates and interview dates only occurred in Chirodzo on that date.
+
+\newpage
 \section{Class notes and other homework}
 \subsection*{12/8/2019 - 8:45pm}
 \subsubsection*{Homework Exercise}
