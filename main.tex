@@ -1248,10 +1248,38 @@ The webpage and PDF were added to Zotero via the browser but without a lot of ci
 
 Searches can be made via the tags and links can be made between referred sources.
 
+\subsection{OpenSemantic}
+\subsubsection*{7/9/2019 - 3:00pm}
+
+OpenSemantic Search is now working, it was lagging because of limited memory. The issue was limiting the available memory to below 1GB.
+
+While it works, it still is lagging. It will need to be further tested to see if it is a valuable tool or useful for the Proof of Concept.
+
+\section{Proof of Concept - Design Document}
+\subsection{Creating User Stories}
+\subsubsection*{9/9/2019 - 6:40pm}
+
+Based on the elaboration, organisation of data and referencing will be the Proof of Concept.
+
+I have identified the following user stories:
+\begin{itemize}
+\item Index
+\item Text Search
+\item Tags
+\item Highlights
+\item Annotations
+\item Import annotations
+\item Import references
+\item Insert references
+\item Generate bibliography
+\end{itemize}
+
+The programs used will be Zotero, Hypothes.is and OpenSemantic Search.
+
 \newpage
 \section{OpenRefine}
-\subsection*{5/9/2019 - 7:30pm}
-\subsubsection*{Using Facets}
+\subsection{Using Facets}
+\subsubsection*{5/9/2019 - 7:30pm}
 
 Using facets, a number of errors were identified in the 'village' column:
 \begin{itemize}
@@ -1261,7 +1289,7 @@ Using facets, a number of errors were identified in the 'village' column:
 \item The entry 49 is an error but unclear what it is.
 \end{itemize}
 
-Objective: Facets Eeercise
+Objective: Facets Exercise
 
 1. Using faceting, find out how many different interviewdate values there are in the survey results.
 
@@ -1271,7 +1299,7 @@ Objective: Facets Eeercise
 
 Text
 
-3. Use faceting to produce a timeline display for interviewdate. You will need to use Edit cells > Common transforms > To date to convert this column to dates.
+3. Use faceting to produce a timeline display for interviewdate. You will need to use 'Edit cells' then 'Common transforms' then 'To date' to convert this column to dates.
 
 \begin{figure}[htp]
     \centering
@@ -1348,6 +1376,127 @@ Objective: Identify what Village 49 is Exercise
 
 Result: Village 49 is Chirodzo as it matched the GPS coordinates and interview dates only occurred in Chirodzo on that date.
 
+\subsubsection{Numbers}
+\subsubsection*{6/9/2019 - 2:09pm}
+
+Exercise Objective: Transform columns to numbers
+
+Results: The following could be transformed to numbers
+
+\begin{verbatim}no_members, yrs_liv, and buildings_in_compound\end{verbatim}
+
+Village could not be transformed to numbers
+
+\subsection{Exporting}
+\subsubsection*{6/9/2019 - 2:24pm}
+
+Exercise Objective: Explain what the files are in an exported project and what information the files contain
+
+Results: Raw data plus the metadata history of changes made by project
+
+\newpage
+\section{R}
+\subsection{Objects vs variables}
+\subsubsection*{6/9/2019 - 3:00pm}
+
+Exercise Question: Answer whether current content of the object areaacres is 123.5 or 6.175
+
+Answer: areaacres is 6.175 because the areaacres calculation was not run since areahectares are redfined to 50. If it had been run after defination, it would have changed to 123.5
+
+Exercise Question: Show that changing the values of either length and width does not affect the value of area.
+
+Action:
+
+length <- 1
+width <- 2
+area <- length * width
+area
+[1] 2
+
+length <- 2
+width <- 4
+area
+
+Result: [1] 2
+
+
+Exercise Questions:
+
+1. Type in ?round at the console and then look at the output in the Help panel. What other functions exist that are similar to round? 
+
+ceiling, floor, trunc, signif
+
+2. How do you use the digits parameter in the round function?
+
+You place it like round(x, digits = 0)
+
+Exercise Question: What happens when you mix different data types into a single vector?
+
+Answer: Converted to same vector
+
+Exercise: Mix these types in a single vector
+
+Action:
+
+numchar <- c(1, 2, 3, "a")
+numlogical <- c(1, 2, 3, TRUE)
+charlogical <- c("a", "b", "c", TRUE)
+tricky <- c(1, 2, 3, "4")
+class(numchar)
+class(numlogical)
+class(charlogical)
+class(tricky)
+
+Results:
+
+> class (numchar)
+[1] "character"
+> class(numlogical)
+[1] "numeric"
+> class(charlogical)
+[1] "character"
+> class(tricky)
+[1] "character"
+
+Converted to the most common atomic vector type
+
+Objective: Outline how many values in combinedlogical are "TRUE" (as a character) 
+
+Action:
+
+> numlogical <- c(1, 2, 3, TRUE)
+> charlogical <- c("a", "b", "c", TRUE)
+> combinedlogical <- c(numlogical, charlogical)
+> numlogical
+[1] 1 2 3 1
+> charlogical
+[1] "a"    "b"    "c"    "TRUE"
+> combinedlogical
+[1] "1"    "2"    "3"    "1"    "a"    "b"    "c"    "TRUE"
+
+Result: One "True"
+
+Objective: Complete Missing Data Exercises
+
+1. Using this vector of rooms, create a new vector with the NAs removed.
+
+rooms <- c(1, 2, 1, 1, NA, 3, 1, 3, 2, 1, 1, 8, 3, 1, NA, 1)
+roomsno <- rooms[!is.na(rooms)]
+
+Result is 1] 1 2 1 1 3 1 3 2 1 1 8 3 1 1
+
+2. Use the function median() to calculate the median of the rooms vector.
+
+The result of median(roomsno) is 1
+
+3. Use R to figure out how many households in the set use more than 2 rooms for sleeping.
+
+The result of roomsno[roomsno > 2] is 4
+
+
+
+
+
 \newpage
 \section{Class notes and other homework}
 \subsection*{12/8/2019 - 8:45pm}
@@ -1414,6 +1563,36 @@ Firstly the screenshot needs to be uploaded before the following code is entered
     \label{fig:imagename}
 \end{figure}
 \end{verbatim}
+
+\subsection*{6/8/2019 - 3:06pm} 
+\subsubsection*{Proof of Concept - Design} 
+
+Individual components working by Week 9 to then work together by Week 11.
+
+Design document
+
+Elaboration is not a to-do list, it was a superficial look at tools
+
+Take decomposition and apply it to proof of concept.
+
+Breaking down tasks that need to be achieved to as part of a set of user stories.
+
+Acceptance criteria are is a recipe that someone else can follow.
+
+Stories can categorise them
+
+Load into a project management system. Can do Github or Trello
+
+Then share user stories for feedback from colleagues. Does it make sense? To tease out ambiguities.
+
+More than 10 user stories, less than 30 stories.
+
+Description not in the user story but have elsewhere
+
+No ambiguity, no advanced thought.
+
+
+
 
 
 \end{document}
