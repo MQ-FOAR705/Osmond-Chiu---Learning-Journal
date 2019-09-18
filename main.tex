@@ -29,6 +29,9 @@
     \item Reproducing Folder Structure - \ref{sec: ReproduceFolder}
     \item Program Security and Privacy Settings - \ref{sec: SecurityPrivacy}
     \item Colons in Unix - \ref{sec: Colon}
+    \item Spelling correctly\ref{sec: SecurityPrivacy}
+    \item Observations \ref{sec: observations}
+
 \end{itemize}
 
 
@@ -1523,7 +1526,8 @@ Objective: Rename the levels of the factor to have the first letter in uppercase
 
 Action:
 
-\begin{verbatim} levels(memb_assoc) <- c("No", "Undetermined", "Yes")\end{verbatim}
+\begin{verbatim} levels(memb_assoc) <- c("No", "Undetermined", "Yes")
+plot(memb_assoc)\end{verbatim}
 
 Result:
 
@@ -1532,7 +1536,6 @@ Result:
     \includegraphics[width=10cm]{Screenshot34.png}
     \label{fig:ls-34}
 \end{figure}
-
 
 
 Objective: Recreate the barplot such that “Undetermined” is last (after “Yes”)
@@ -1549,6 +1552,158 @@ Result:
     \includegraphics[width=10cm]{Screenshot35.png}
     \label{fig:ls-35}
 \end{figure}
+
+\subsection{Pipes}
+\subsubsection*{16/9/2019 - 8:26pm}
+
+N.B. think of %>% as the equivalent of 'then'
+
+Objective: Using pipes, subset the interviews data
+
+Action:
+
+interviews %>%
+filter(memb_assoc == "Yes") %>%
+select(affect_conflicts, liv_count, no_meals)
+
+Result: Data subseted
+
+\subsection{Mutate}
+\subsubsection*{16/9/2019 - 8:35pm}
+
+Objective: Create a new data frame from the interviews data that meet a set criteria.
+
+Action:
+
+interview_total_meals <- interviews %>% 
+mutate(total_meals = no_members * no_meals) %>% 
+filter(total_meals > 20) %>%
+select(village,total_meals)
+
+Error: 'no_members' not found. Error:\label{sec: NoMembers}
+
+
+Action:
+
+interview_total_meals <- interviews %>% 
+mutate(total_meals = no_membrs * no_meals) %>% 
+filter(total_meals > 20) %>%
+select(village, total_meals)
+
+Result: Data frame created
+
+\subsection{Split-apply-combine data analysis and the summarize() function}
+\subsubsection*{18/9/2019 - 8:40pm}
+
+Objective: Find number of meals by household
+
+Action:
+
+interviews %>%
+count(no_meals)
+
+Error: None
+    
+Result:
+
+# A tibble: 2 x 2
+  no_meals     n
+     <int> <int>
+        2    52
+        3    79
+
+52 households have an average of 2 meals per day. 79 have an average of 3 meals per day. No other number
+
+Objective: Use group_by() and summarize() to find the mean, min, and max number of household members for each village. Also add the number of observations
+
+Action:
+
+interviews %>%
+    group_by(village) %>%
+    summarize(mean_no_membrs = mean(no_membrs), min_membrs = min(no_membrs), max_membrs = max(no_membrs), ?n)
+
+Error: Observations do not appear\label{sec: Observations}
+
+Result:
+
+# A tibble: 3 x 5
+  village  mean_no_membrs min_membrs max_membrs `\`?\`(n)`                                                                 
+  <fct>             <dbl>      <int>      <int> <chr>                                                                      
+Chirodzo           7.08          2         12 /Library/Frameworks/R.framework/Versions/3.5/Resources/library/dplyr/help/n
+God                6.86          3         15 /Library/Frameworks/R.framework/Versions/3.5/Resources/library/dplyr/help/n
+Ruaca              7.57          2         19 /Library/Frameworks/R.framework/Versions/3.5/Resources/library/dplyr/help/n
+ 
+Action:
+
+interviews %>%
+    group_by(village) %>%
+    summarize(mean_no_membrs = mean(no_membrs), min_membrs = min(no_membrs), max_membrs = max(no_membrs), n = n())
+
+Result:
+
+  village  mean_no_membrs min_membrs max_membrs     n
+  <fct>             <dbl>      <int>      <int> <int>
+1 Chirodzo           7.08          2         12    39
+2 God                6.86          3         15    43
+3 Ruaca              7.57          2         19    49
+
+Objective: What was the largest household interviewed in each month?
+
+Action:
+
+library(lubridate)
+interviews %>%
+    mutate(month = month(interview_date),
+           day = day(interview_date),
+           year = year(interview_date)) %>%
+    group_by(year, month) %>%
+    summarize(max_no_membrs = max(no_membrs))
+    
+Result:
+
+# A tibble: 5 x 3
+# Groups:   year [2]
+   year month max_no_membrs
+  <dbl> <dbl>         <int>
+  2016    11            19
+  2016    12            12
+  2017     4            17
+  2017     5            15
+  2017     6            15
+
+\subsection{Reshaping with gather and spread}
+\subsubsection*{18/9/2019 - 9:05pm}
+
+Objective: Create a new data frame (named interviews_months_lack_food) that has one column for each month and records TRUE or FALSE for whether each interview respondent was lacking food in that month.
+
+Action:
+
+interviews_months_lack_food <- interviews %>%
+separate_rows(months_lack_food, sep=";") %>%
+mutate(months_lack_food_logical = TRUE) %>%
+spread(key = months_lack_food, value = months_lack_food_logical, fill = FALSE)
+
+Results: Data frame created
+
+Objective: Determine how many months (on average) were respondents without food if they did belong to an irrigation association? What about if they didn’t?
+
+Action:
+
+interviews_months_lack_food %>%
+  mutate(no_months = rowSums(select(., Apr:Sept))) %>%
+  group_by(memb_assoc) %>%
+  summarize(mean_months = mean(no_months))    
+
+Results:
+
+# A tibble: 3 x 2
+  memb_assoc mean_months
+  <fct>            <dbl>
+no                2.31
+yes               2.64
+NA                2.95
+Warning message:
+Factor `memb_assoc` contains implicit NA, consider using `forcats::fct_explicit_na` 
 
 \newpage
 \section{Class notes and other homework}
