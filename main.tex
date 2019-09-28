@@ -29,9 +29,10 @@
     \item Reproducing Folder Structure - \ref{sec: ReproduceFolder}
     \item Program Security and Privacy Settings - \ref{sec: SecurityPrivacy}
     \item Colons in Unix - \ref{sec: Colon}
-    \item Spelling correctly\ref{sec: SecurityPrivacy}
+    \item Spelling correctly\ref{sec: NoMembers}
     \item Observations \ref{sec: Observations}
     \item Colour data points in ggplot \ref{sec: colourdatapoints}
+    \item Redirect URL location \ref{sec: RedirectURL}
 
 \end{itemize}
 
@@ -1358,10 +1359,93 @@ I then tested the importation of metadata into Zotero using ISBN. After successf
 
 I tested the importation of a PDF to see what would occur. An error message "The selected file is not in a supported format." appeared. A similar test was done with a docx and a HTML file which had the same error message. 
 
-\subsection{Debugging OpenSemantic Search}
-\subsubsection*{24/9/2019 - 8:10pm}
 
-I attmpted
+\subsection{Using Terminal to Download files}
+\subsubsection*{28/9/2019 - 10:00am}
+
+A quick google indicated that curl -O was the command line to download from a URL that did not change the name of the file.
+
+Objective: Use Terminal to download Zotero
+
+Action:
+
+Open Terminal
+curl -O https://www.zotero.org/download/client/dl?channel=release&platform=mac&version=5.0.74
+
+Error: Zotero not downloaded because redirection did not occur. \label{sec: RedirectURL}
+
+Result: 
+
+\begin{verbatim}[1] 4056
+[2] 4057
+[2]+  Done                    platform=mac
+Luisas-Air:install-package osmondchiu$   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
+\end{verbatim}
+Downloaded file named 'dl?channel=release', not installer.
+
+
+Objective: Find redirect URL
+
+Action:
+
+Googled 'Show URL redirect'
+Went to https://wheregoes.com/retracer.php
+Enter in URL 'https://www.zotero.org/download/client/dl?channel=release&platform=mac&version=5.0.74'
+Enter in URL 'https://nx318.your-storageshare.de/s/x56jafH96wwAYrG/download'
+
+Result: The location of the file is 'https://download.zotero.org/client/release/5.0.74/Zotero-5.0.74.dmg'
+
+Guidance on code for how to install a mount a .dmg file for installation was found at https://www.isumsoft.com/computer/3-ways-to-mount-dmg-files-on-macos.html#way2
+
+
+Objective: Write script to download and open install package
+
+Action:
+
+nano bash proof-of-concept.sh
+
+# Creates folders.
+
+cd desktop
+mkdir install-package
+cd install-package
+
+# Downloads Zotero, VirtualBox and OpenSemantic Search.
+
+curl -O https://download.zotero.org/client/release/5.0.74/Zotero-5.0.74.dmg 
+curl -O https://download.virtualbox.org/virtualbox/6.0.12/VirtualBox-6.0.12-133076-OSX.dmg
+curl -o open-semantic-desktop-search_19.07.19.ova  https://nx318.your-storageshare.de/s/x56jafH96wwAYrG/download  
+
+# Downloads Instructions.
+
+
+# Downloads User Licence and Readme.
+
+
+# Runs installation.
+
+hdiutil attach Zotero-5.0.74.dmg
+hdiutil attach VirtualBox-6.0.12-133076-OSX.dmg
+
+# Opens Instructions for installation
+
+
+
+Result: Creates folders, downloads Zotero from URL and opens dmg file/
+
+# Creating Zotero and Hypothes.is accounts
+
+Open https://www.zotero.org/user/register
+Open https://web.hypothes.is/start/
+
+
+
+
+
+
+
 
 \newpage
 \section{OpenRefine}
