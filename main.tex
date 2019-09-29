@@ -1404,8 +1404,6 @@ Objective: Write script to download and open install package
 
 Action:
 
-nano bash proof-of-concept.sh
-
 # Creates folders.
 
 cd desktop
@@ -1418,34 +1416,53 @@ curl -O https://download.zotero.org/client/release/5.0.74/Zotero-5.0.74.dmg
 curl -O https://download.virtualbox.org/virtualbox/6.0.12/VirtualBox-6.0.12-133076-OSX.dmg
 curl -o open-semantic-desktop-search_19.07.19.ova  https://nx318.your-storageshare.de/s/x56jafH96wwAYrG/download  
 
-# Downloads Instructions.
-
-
-# Downloads User Licence and Readme.
-
-
-# Runs installation.
+# Mounts files.
 
 hdiutil attach Zotero-5.0.74.dmg
 hdiutil attach VirtualBox-6.0.12-133076-OSX.dmg
 
-# Opens Instructions for installation
-
-
-
-Result: Creates folders, downloads Zotero from URL and opens dmg file/
 
 # Creating Zotero and Hypothes.is accounts
 
 Open https://www.zotero.org/user/register
 Open https://web.hypothes.is/start/
 
+Result: Creates folders, downloads from URL, mounts dmg files and opens websites.
+
+The other components I should attempt to add into the automation are:
+
+# Downloads Instructions and Quality Assurance Test.
+# Downloads User Licence and Readme.
+# Opens Instructions
 
 
+\subsection{Licence}
+\subsubsection*{28/9/2019 - 3:55pm}
 
+In looking to create a licence for the package, I sought information from https://choosealicense.com/
 
+I ended up choosing MIT as the simplest which would allow the most flexibility as the aim is for the package to not be commercial.
 
+\subsection{Automator}
+\subsubsection*{28/9/2019 - 4:27pm}
 
+An alternative to using Shell Scripts (or incorporating it) is using Automator on Mac.
+
+The following URL provided advice on how I would set up the downloading of those files from URLS: https://www.therobbiedshow.com/web-dev-notes/2011/12/14/automator-workflow-to-download-specific-files-from-url.html
+
+\subsection{Quality Assurance Test}
+\subsubsection*{28/9/2019 - 4:27pm}
+
+For the quality assurance test, I am developing a checklist in LaTex that I will add to my Git repository that will be downloaded with the package.
+
+The guidance on how to create the format was obtained from https://tex.stackexchange.com/questions/247681/how-to-create-checkbox-todo-list
+
+The prioritisation that was created in my Design document will shape it.
+
+\subsection{Instructions}
+\subsubsection*{28/9/2019 - 4:27pm}
+
+For my final technology deployment, a number of tasks cannot be automated. These will require user instructions. My plan is to automatically open the instructions once the package is running (along with the checklist of user stories). The instructions will be the acceptance criteria i.e. the detailed recipe.
 
 \newpage
 \section{OpenRefine}
@@ -2169,8 +2186,8 @@ Firstly the screenshot needs to be uploaded before the following code is entered
 \end{figure}
 \end{verbatim}
 
-\subsection*{6/8/2019 - 3:06pm} 
-\subsubsection*{Proof of Concept - Design} 
+\subsection*{6/9/2019 - 3:06pm} 
+\subsubsection*{Notes from class about Proof of Concept - Design} 
 
 Individual components working by Week 9 to then work together by Week 11.
 
@@ -2197,98 +2214,32 @@ Description not in the user story but have elsewhere
 No ambiguity, no advanced thought.
 
 
-That I have a second Duplicati backup that points at an external hard drive and a calendar reminder to do that.
+\subsection*{27/9/2019 - 2:09pm} 
+\subsubsection*{Notes from meeting with Brian} 
 
-Where to put the user stories
+Have a second Duplicati backup that points at an external hard drive and a calendar reminder to do that.
 
+Use Trello for project management where the title is user story, description is acceptance criteria and comments are actions I have taken as a log
 
-TRELLO:
+Feedback on my design document were:
 
-Title is user story
+One change to design document is addressing the lack of priority - which things to do in which order. Can use Trello via labels to do this.
 
-Description is acceptance criteria
+User Stories include setup so do it for. Before indexing files on OpenSemantic, it needs to set up - treat as a user story, same with setting up a tag hierarchy before creaing tags.
 
-Comments are actions I have taken as a log
+To do automated testing. play with Automator on Mac for quality assurance test. Simplest thing would be have something like a screen recording.
 
-Lack of priority - which things to do in which order. Can use Trello via labels to do this.
+The creation of a User Acceptance Test will involve putting all these stories into a to do-list, remove duplication. Test it by running it through Automator
 
-User Stories include setup so do it for
+Licence file and readme will be needed for final deployment. Put a licence in a respository of your code and readme in repository.
 
-Before index need to set up - treat as a user story
+The lightning presentation is a quick pitch about what you done.
 
+Based on what my plan is, my Git depository will likely be instructions for users i.e. techniques for the human to achieve the goal and a package i.e. a shell script to download everything into a Mac so tasks are automated..
 
-VM setup - instructions e.g. you should do X for API.
+Figure out how to export file and how to write a code to import it into a Zotero to do things like export of hypothes.is or download uploaded to program in Zotero via R?
 
-
-
-
-Automated testing
-
-Unit Test - reading
-
-Attempts 
-
-Simplest thing - have something like a screen rec
-
-Play with Automator for quality assurance test.
-
-
-
-User Acceptance Test.
-
-All these stories into a to do-list
-
-Automation get a computer to do it
-
-
-Licence file and readme
-
-Put a licence in a respository of your code and 
-
-Readme in repository.
-
-Quick pitch about what you done.
-
-User story - separate for export
-
-
-Git-Repository
-
-Shellscript that uses
-
-Shared Folder as documents as a test
-
-Instructions for users
-
-Techniques for the human to achieve the goal.
-
-Shellscript to download everything in a mac
-
-Tag hierarchies
-
-Save automation testing scripts
-
-Figure out how to export file and how to write a code to import it into a Zotero
-
-Export of hypothes.is 
-
-Download uploaded to program in Zotero via R?
-
-Upload vocabulry
-
-Tag list
-
-
-
-
-
-Document
-
-Tag naming framework document
-
-Virtual
-
-
+Other challenges might be upload vocabulary in OpenSemantic search to automatically tag documents
 
 
 \end{document}
