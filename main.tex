@@ -1600,6 +1600,46 @@ For the non-assessable demonstration I have worked:
 
 Going beyond that will be uploading a thesaurus to auto-tag and getting Hypothes.is to export annotations to OpenSemantic Search.
 
+
+\subsection{Displaying notifications}
+\subsubsection*{10/10/2019 - 8:30pm}
+
+
+From the #random channel on Slack, I saw that scripts can be used to generate notifications. The explanation was at
+https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayNotifications.html#//apple_ref/doc/uid/TP40016239-CH61-SW1
+
+Objective: Generate Notification in Apple Script
+
+Action: 
+
+In Automator, select Action, run Apple Script
+Enter the following into the text box:  display notification "Explains using Zotero, Hypothes.is, Open Semantic." with title "Read instructions" subtitle "Instructions found in Install-Package folder." sound name "Frog"
+Click Play icon to run the script
+
+Error: None
+
+Result: Successfully shows notification
+
+The notification will be used to prompt people to look at the instructions once browser windows and installations commence.
+
+
+\subsection{Selecting and opening file}
+\subsubsection*{10/10/2019 - 8:54pm}
+
+Objective: Selected File Is Opened
+
+Action:
+
+In Automator, select Action, choose Get Specified Finder Item
+Click Add
+Choose file
+Select Action then choose Open Finder Item
+Select Application to open the file
+Click on the Run Icon
+
+Result: File is opened
+
+
 \newpage
 \section{OpenRefine}
 \subsection{Working With OpenRefine}
