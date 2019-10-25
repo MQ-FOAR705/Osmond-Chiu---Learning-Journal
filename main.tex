@@ -35,7 +35,7 @@
     \item Observations \ref{sec: Observations}
     \item Colour data points in ggplot \ref{sec: colourdatapoints}
     \item Redirect URL location \ref{sec: RedirectURL}
-
+    \item Bibliography not showing when using BibLaTex in Overleaf \ref{sec: BiblaTexZotero}
 \end{itemize}
 
 
@@ -1728,7 +1728,56 @@ chmod +x RBToolsPackageforMac
 
 The two main tasks I need to get working are uploading thesaurus list for Open Semantic Search and getting bibliography integration to work for Overleaf LaTex.
 
-I've decided to not proceed with the integration of Hypothes.is and Zotero because of the difficulties. It appears to be an idea that individuals have thought about based on internet searches but have not been able to complete.
+I've also decided to not proceed with the integration of Hypothes.is and Zotero because of the difficulties and the amount of time I have available. It appears to be an idea that individuals have thought about based on internet searches but have not been able to complete.
+
+
+\subsection{Bibliography}
+\subsubsection*{20/10/2019 - 7:36pm}
+
+Objective: Generate bibliography using Zotero in Overleaf
+
+Create new file
+Select Zotero, Biblatex then call references
+Type in the following code
+
+\documentclass{article}
+\usepackage{biblatex}
+
+\begin{document}
+
+\bibliography{references.bib}
+
+\cite{jessop_state_1990}
+
+\printbibliography
+
+Error: No citation or bibliography generated, instead:
+
+
+Result: The following appears references.bib[jessop ̇state ̇1990]\label{sec: BiblaTexZotero}
+
+
+\subsection{Bibliography}
+\subsubsection*{25/10/2019 - 1:10pm}
+
+Checked the Zotero bib file and there was a corrupt reference which was removed.
+
+Objective: Generate bibliography using Zotero in Overleaf
+
+\documentclass{article}
+\usepackage{biblatex}
+\bibliography{references.bib}
+
+\begin{document}
+
+\autocite{jessop_state_1990}
+
+\printbibliography
+
+Error: None
+
+Result: Bibliography generated because bibliography moved before begin{document} and corrupt reference removed
+
 
 \newpage
 \section{OpenRefine}
