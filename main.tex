@@ -36,6 +36,7 @@
     \item Colour data points in ggplot \ref{sec: colourdatapoints}
     \item Redirect URL location \ref{sec: RedirectURL}
     \item Bibliography not showing when using BibLaTex in Overleaf \ref{sec: BiblaTexZotero}
+    \item Finding and opening a file without knowing its path \ref{Sec: MDFind}
 \end{itemize}
 
 
@@ -1686,13 +1687,6 @@ Objective: Write bash script for executable file to run software package
 
 Action:
 
-nano RBToolsPackageforMac
-
-# Open Instructions and Quality Assurance Test.
-
-open instructions.pdf
-open qualityassurance.pdf
-
 # Creates folders.
 
 cd desktop
@@ -1778,6 +1772,54 @@ Error: None
 
 Result: Bibliography generated because bibliography moved before begin{document} and corrupt reference removed
 
+\subsection{Path for External Hard Drive}
+\subsubsection*{25/10/2019 - 1:10pm}
+
+Examining Duplicati, it was unclear how to find the path to establish a backup to an external hard drive. Advice was provided by https://macpaw.com/how-to/access-external-hard-drive#targetText=Mount%20an%20external%20hard%20drive%20on%20Mac&targetText=Go%20to%20System%20Preferences%20%3E%20Disk,under%20devices%20in%20the%20Finder.
+
+The path was via the Volumes folder which was used for the Duplicati restoration.
+
+\subsection{Open File Without Knowing Path}
+\subsubsection*{27/10/2019 - 8:07pm}
+
+
+Objective: Open PDF File named RBToolsMacInstructions Without Knowing Path\label{Sec: MDFind}
+
+Action: 
+
+Move "RBToolsforMacInstructions.pdf" into folder
+nano RBToolsPackageforMac
+Type open RBToolsforMacInstructions.pdf
+Save RBToolsPackageforMac
+chmod +x RBToolsPackageforMac
+Run RBToolsPackageforMac
+
+Error: File does not found
+
+Result:
+
+Last login: Sun Oct 27 20:12:00 on ttys000
+Luisas-Air:~ osmondchiu$ /Users/osmondchiu/Downloads/Test ; exit;
+The file /Users/osmondchiu/Instructions.pdf does not exist.
+logout
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
+
+[Process completed]
+
+
+Some suggested guidance on how to open a file using 'mdfind' was found at https://discussions.apple.com/thread/1254358
+
+Objective: Open PDF File named RBToolsMacInstructions Without Knowing Path
+
+Action: 
+
+Open Terminal
+Type in \begin{verbatim}open $(mdfind -name "RBToolsMacInstructions.pdf")\end{verbatim}
+
+Result: Finds and open files
 
 \newpage
 \section{OpenRefine}
@@ -2601,6 +2643,23 @@ Use Wordpress or free/low cost (Wix, Weebly).
 
 Github pages
 
+
+
+
+In a folder in our repository, this is the acceptance. Follow these steps to work through the project.
+
+Explain where it is in Readme.md
+
+
+Explain why Duplicati. Open source and free.
+
+Export configuration and encrypt
+
+Route online restore
+
+Create Backup using External Drive
+
+Before Week 14
 
 
 \end{document}
