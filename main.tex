@@ -38,6 +38,7 @@
     \item Bibliography not showing when using BibLaTex in Overleaf \ref{sec: BiblaTexZotero}
     \item Finding and opening a file without knowing its path \ref{Sec: MDFind}
     \item Downloading an incorrect file\ref{sec: redirectdl}
+    \item Security settings for apps with unidentified developers\ref{sec: AppSecurity}
 \end{itemize}
 
 
@@ -1671,12 +1672,12 @@ Objective: Create an Executable file
 Action: 
 
 Launch Terminal
-nano TestExe
+nano RBToolsPackageforMac
 Enter the following code title='Read Instructions'
 \begin{verbatim}osascript -e "display dialog \"Instructions for Zotero, Hypothes.is and Open Semantic Search are found in Install-Package folder\" with title \"$title\""\end{verbatim}
 Save file
-In Terminal, type chmod +x TestExe
-Open Finder and double click TestExe.
+In Terminal, type chmod +x RBToolsPackageforMac
+Open Finder and double click RBToolsPackageforMac.
 
 Result: Code is executed and notification displayed
 
@@ -1689,7 +1690,7 @@ The two main tasks I need to get working are uploading thesaurus list for Open S
 I've also decided to not proceed with the integration of Hypothes.is and Zotero because of the difficulties and the amount of time I have available. It appears to be an idea that individuals have thought about based on internet searches but have not been able to complete.
 
 
-\subsection{Bibliography}
+\subsection{Generate Bibliography - Test 1}
 \subsubsection*{20/10/2019 - 7:36pm}
 
 Objective: Generate bibliography using Zotero in Overleaf
@@ -1698,7 +1699,7 @@ Create new file
 Select Zotero, Biblatex then call references
 Type in the following code
 
-\documentclass{article}
+\begin{verbatim}\documentclass{article}
 \usepackage{biblatex}
 
 \begin{document}
@@ -1708,20 +1709,22 @@ Type in the following code
 \cite{jessop_state_1990}
 
 \printbibliography
-
+\end{verbatim}
 Error: No citation or bibliography generated, instead:
 
 
 Result: The following appears references.bib[jessop ̇state ̇1990]\label{sec: BiblaTexZotero}
 
 
-\subsection{Bibliography}
+\subsection{Generate Bibliography - Test 2}
 \subsubsection*{25/10/2019 - 1:10pm}
 
 Checked the Zotero bib file and there was a corrupt reference which was removed.
 
 Objective: Generate bibliography using Zotero in Overleaf
 
+\begin{verbatim}
+    
 \documentclass{article}
 \usepackage{biblatex}
 \bibliography{references.bib}
@@ -1731,6 +1734,8 @@ Objective: Generate bibliography using Zotero in Overleaf
 \autocite{jessop_state_1990}
 
 \printbibliography
+
+\end{verbatim}
 
 Error: None
 
@@ -1868,9 +1873,67 @@ Examining it, the version of Zotero I have used in the code is also an older ver
 Instructions and the quality assurance will need to be double checked.
 
 
-\subsection{Test Non-Executable Components of }
-\subsubsection*{2/11/2019 - 6:25pm}
+\subsection{Test Downloading from Github}
+\subsubsection*{3/11/2019 - 6:25pm}
 
+Objective: Download and open RBTools from Git Repository\label{sec: AppSecurity}
+
+Action:
+
+Download RBTools package from Git respository
+Open Zip
+Click on executable RBToolsPackageforMac app
+
+Error: Unable to open RBToolsPackageforMac app.
+
+Result: Prevented from opening a Mac app from an unidentified developer due to security settings in App Store
+
+Mac help provides guidance on how to override security settings and open the app by using Control-click the app icon then choose Open.
+
+
+Objective: Download and open RBTools from Git Repository\label{sec: AppSecurity}
+
+Action:
+
+Download RBTools package from Git respository
+Open Zip
+Control-Click on executable RBToolsPackageforMac app
+Select open
+
+Result: Executable file runs successfully
+
+
+\subsection{Test Instructions}
+\subsubsection*{4/11/2019 - 7:34pm}
+
+Objective: Double check written Instructions against the Proof of Concept
+
+Action:
+
+Follow the steps listed in Instructions pdf to complete the following tasks as part of Proof of Concept:
+
+\begin{enumerate}
+    \item Create Zotero account
+    \item Sync Zotero
+    \item Link Zotero to the typesetting or word processing program
+    \item Import references
+    \item Insert references
+    \item Generate bibliography
+    \item Create Hypothes.is account
+    \item Install Hypothes.is toolbar and bookmarklet
+    \item Create tag hierarchy
+    \item Highlight in Hypothes.is
+    \item Annotation in Hypothes.is
+    \item Load OpenSemantic Search
+    \item Text search in Open Semantic Search
+    \item Create tags in Open Semantic Search
+    \item Tag documents in Open Semantic Search
+    \item Generate Hypothes.is API token
+    \item Import Annotations from Hypothes.is into Open Semantic Search
+
+Results: Errors and gaps were identified in how instructions were previously written.
+
+Changes were made such as for the creation of tags and additional steps were added in to instructions for loading Open Semantic Search and annotation in Hypothes.is
 
 \newpage
 \section{OpenRefine}
@@ -2677,7 +2740,7 @@ What are your solutions in a non-technical way, plain English i.e don't talk abo
 Original Software Publication is technical
 
 \subsection*{25/10/2019 - 2:12pm} 
-\subsubsection*{PICO Presentation} 
+\subsubsection*{PICO Presentation and Duplicati} 
 
 Make sure you have licencing and photo credits in slides and to use images to tell narrative story
 
@@ -2685,18 +2748,9 @@ The presentation Need to explain - how you solved problem - they can tell you wh
 
 Have slides as a singular set
 
-
-
-
 Explain why Duplicati. Open source and free.
 
-Export configuration and encrypt
-
-Route online restore
-
-Create Backup using External Drive
-
-Before Week 14
+Export configuration and encrypt so you have a route for an online restore plus create Backup using External Drive
 
 
 \end{document}
