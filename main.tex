@@ -1935,6 +1935,332 @@ Results: Errors and gaps were identified in how instructions were previously wri
 
 Changes were made such as for the creation of tags and additional steps were added in to instructions for loading Open Semantic Search and annotation in Hypothes.is
 
+\subsection{Disaster recovery plan}
+\subsubsection*{4/11/2019 - 9:30pm}
+
+Objective: Export backup configuration
+
+Action:
+
+Open Duplicati
+Click on backup 
+Then Configuration Export
+Select To File
+
+Result: Backup Settings File Downloaded
+
+Objective: Add backup configuation
+
+Action:
+
+Open Duplicati
+Click Add Backup
+Select Import from File
+Choose exported Configuration file
+Click Import
+
+Result: Backup Settings imported
+
+
+\subsection{User Acceptance Test}
+\subsubsection*{7/11/2019 - 8:50pm}
+
+The User Acceptance test aims to test out the the Proof of Concept as a whole
+
+Objective: Download and install
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Read} the Readme.md file.
+\item \textbf{Confirm} Operating System and disk space requirements are met by looking at readme.md in the Git repository.
+\item \textbf{Download} from the repository at \href{https://github.com/MQ-FOAR705/Osmond-Chiu---Proof-of-Concept---Implementation.git}{https://github.com/MQ-FOAR705/Osmond-Chiu---Proof-of-Concept---Implementation.git}.
+\item \textbf{Open} Zip File.
+\item \textbf{Control}-click the RBToolsPackageforMac in unzipped folder then select open to begin installation and bypass any security settings that may prevent the file from running
+\item \textbf{Read} these instructions.
+\end{enumerate}
+
+Results: The steps work, Zotero and VirtualBox installation commences for next steps, browsers open at Hypothes.is and Zotero websites to create accounts and the RBToolsMacInstructions.pdf file opens
+
+Objective: Zotero installation
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Check} that Zotero installation file has been mounted if installation does not automatically pop-up.
+\item \textbf{Drag} the Zotero icon to 'Drag here to install'.
+\item \textbf{Complete} Zotero installation.
+\end{enumerate}
+
+Results: Zotero is installed and can be found in Launcher
+
+Objective: Create Zotero Account
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Open} browser.
+\item \textbf{Go to}  \href{https://www.zotero.org/user/login}{https://www.zotero.org/user/login} .
+\item \textbf{Click} Register for a Free Account.
+\item \textbf{Choose} the username and email address you want to use for the account.
+\item \textbf{Click} Register and you’ll receive a confirmation email shortly.
+\item \textbf{Click} on the link in the confirmation email you receive to confirm your account set up.
+
+\end{enumerate}
+
+Results: Zotero account is successfully created and verified and now can be synced to Zotero program
+
+
+Objective: Sync Zotero
+
+Action:
+
+\begin{enumerate}
+
+\item \textbf{Open} Zotero.
+\item \textbf{Open} Preferences (via the Zotero menu) and select the Sync tab.
+\item \textbf {Enter} your Zotero user name and password.
+\item \textbf {Click} set up syncing.
+\item \textbf {Check} both boxes under File Syncing and choose Zotero storage for My Library.
+\item \textbf {Close} Preferences.
+\item \textbf {Import} relevant file or add item from identifiers to add references.
+\item \textbf {Click} the green circular arrow button at the top right corner of the Zotero program window to sync account with software.
+
+\end{enumerate}
+
+Results: Zotero program is successfully now synced to online account and can be linked.
+
+Objective: Link Zotero to Overleaf
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Go to}  \href{https://www.overleaf.com/}{https://www.overleaf.com/}. 
+\item \textbf{Register} an Overleaf account if you do not already have one.
+\item \textbf {Log} into Overleaf
+\item \textbf {Click} on Account then Account Settings.
+\item \textbf {Scroll} down the page to Zotero Integration.
+\item \textbf {Click} on 'Link to Zotero' and you will be prompted to log into Zotero.org
+\item \textbf {Enter} Zotero username and password.
+\item \textbf {Create} a New Private Key.
+\item \textbf {Click} on Accept Defaults and you will be automatically returned to your Overleaf account settings page.
+\item \textbf {Scroll} down to the bottom of the page to check Zotero Integration.
+\end{enumerate}
+
+Results: Zotero program is now synced to online account and can be linked.
+
+Objective: Import references from Zotero to Overleaf
+
+Action:
+
+\begin{enumerate}
+\item \textbf {Go} to Overleaf. 
+\item \textbf {Select} the project that you want to link to Zotero.
+\item \textbf {Select} New File from the top menu.
+\item \textbf {Select} 'From Zotero', name the file for the project 'thesisbibliography' and choose a format (BibLaTeX).
+\item \textbf {Go} to main.tex file and add your Zotero file (as a bib resource) to header with the codes \begin{verbatim} \usepackage{biblatex} and \bibliography{thesisbibliography.bib}\end{verbatim}.
+\end{enumerate}
+
+Results: thesisbibliography.bib file added to Overleaf project and relevant code in header
+
+Objective: Insert reference
+
+Action:
+
+\begin{enumerate}
+\item \textbf {Select} where you want to place the reference in the text.
+\item \textbf {Write} /cite{} which is the @book{} from thesisbibliography.bib then enter in citation.
+\end{enumerate}
+
+Results: When Recompile is selected, the citation appears
+
+Objective: Insert bibliography
+
+Action:
+
+\begin{enumerate}
+\item \textbf {Select} where you want to place the bibliography in the text.
+\item \textbf{Insert} your bibliography by typing into the source code \begin{verbatim}/printbibliography\end{verbatim}.
+\end{enumerate}
+
+Results: When Recompile is selected, the bibliography list of citations appears under the heading 'References'
+
+Objective: Create Hypothes.is account
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Go} to open browser
+\item \textbf{Go to} \href{hypothes.is/signup}{hypothes.is/signup}. 
+\item \textbf{Choose} a username, enter your email address, and create a password.
+\item \textbf{Click} Sign Up and you will receive a confirmation email to active your account.
+\item \textbf{Click} the link in the email received to validate your email and activate your Hypothes.is account.
+\end{enumerate}
+
+Results: Hypothes.is account created and validated
+
+Objective: Add Hypothes.is to browser
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Go to} web.hypothes.is/start . 
+\item \textbf{Click} add-on for Chrome.
+\item \textbf{Accept} the prompt in the pop up window to install the extension. 
+\item \textbf{Consider} adding a bookmarklet if you do not have/use Chrome.
+\item \textbf{Go to} web.hypothes.is/start. 
+\item \textbf{Drag} 'Hypothesis Bookmarklet' to the bookmarks bar, or right-click/control-click to bookmark the link.
+\end{enumerate}
+
+Results: Hypothes.is icon lists on browser toolbar and as a bookmark that can be used.
+
+Objective: Create a tag list
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Identify} what you want tagged based on topics, themes, keywords, source types. 
+\item \textbf{Create} a text document to list tags.
+\item \textbf{Write} down list of tags based on identified subjects.
+\item \textbf{Save} text document list of tags
+\end{enumerate}
+
+Results: A saved text file of possible tags has been created.
+
+Objective:  Highlight text in digital document
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Go to} webpage or open a local file in a browser to highlight. 
+\item \textbf{Click} on Hypothes.is icon in browser toolbar or bookmarklet.
+\item \textbf{Click} toggle or resize sidebar.
+\item \textbf{Log} into your Hypothes.is account.
+\item \textbf{Choose} whether you want the highlight to be public or in a private group.
+\item \textbf{Select} text that you wish to highlight.
+\item \textbf{Click} on the Highlight icon that appeals.
+\end{enumerate}
+
+Results: Text is highlighted on webpage and it appears on sidebar
+
+Objective: Annotate text
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Go to} webpage or open a local file in a browser to annotate. 
+\item \textbf{Click} on Hypothes.is icon in browser toolbar or bookmarklet.
+\item \textbf{Click} toggle or resize sidebar.
+\item \textbf{Log} into your Hypothes.is account.
+\item \textbf{Choose} whether you want the highlight to be public or in a private group.
+\item \textbf{Select} text that you wish to annotate.
+\item \textbf{Click} on the Annotate icon that appeals.
+\item \textbf{Type} annotations in text box.
+\item \textbf{Type} tags for the annotation.
+\item \textbf{Choose} where to post the annotations (public or private group) and click. 
+\end{enumerate}
+
+Results: Selected text, annotations and tags appear under Annotations on sidebar
+
+Objective: Generate API token
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Go to} Hypothes.is website. 
+\item \textbf{Log} into your Hypothes.is account.
+\item \textbf{Click} on gear icon.
+\item \textbf{Click} on 'Developer.
+\item \textbf{Click} Generate Your API token.
+\item \textbf{Copy} token in text box for use.
+\end{enumerate}
+
+Results: API token generated and can be copied for use
+
+Objective: Installing VirtualBox
+
+Action:
+
+\begin{enumerate}
+\item \textbf {Double-click} on the VirtualBox dmg installer file displayed in Install-Package folder on Desktop.
+\item \textbf {Select} where to install Oracle VM VirtualBox.
+\item \textbf{Download} the virtual machine image Open Semantic Desktop Search. 
+\item \textbf {Find} Oracle VM VirtualBox icon in the "Applications" folder in the Finder.
+\end{enumerate}
+
+Results: VirtualBox installed and open, ready to load Open Semantic Search
+
+Objective: Installing Open Semantic Search
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Start} VirtualBox.
+\item \textbf{Go} into the menu "File" start the option "Import Appliance".
+\item \textbf{Click} folder icon then choose the Open Semantic Desktop Search .ova file and select "Continue"
+\item \textbf{Click} "Import" at the bottom of the pop-up screen.
+\item \textbf{Edit} the settings of the new virtual machine (choose the virtual machine in the left sidebar and click the Settings button in the top bar).
+\item \textbf{Go} to "Shared Folders" then click the Add Shared Folders icon.
+\item \textbf{Click} on "Folder Path" then select folder.
+\item \textbf{Activate} the option Auto-mount then click "Ok".
+\end{enumerate}
+
+Results: Open Semantic Search now ready to be loaded on VirtualBox
+
+
+Objective: Run search in Open Semantic Search
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Select} Open Semantic Desktop Search.
+\item \textbf{Click} on Start Icon. 
+\item \textbf{Enter} text into the Open Semantic Search interface. 
+\item \textbf{Click} search.
+\item \textbf{Select} relevant filter in facets on the right navigation sidebar. 
+\end{enumerate}
+
+Results: Results of search through indexed documents are available on local host filtered by facets
+
+Objective: Create tags in Open Semantic Search
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Click} on Manage Structure in the topbar of the Open Semantic Search interface.
+\item \textbf{Click} Add New Entry.
+\item \textbf{Select} Tag as Facet. 
+\item \textbf{Type} name of tag in 'Label or name' based on Tag Hierarchy.
+\item \textbf{Save} tag. 
+\item \textbf{Return} to local host search home page.
+\item \textbf{Search} for document you wish to tag.
+\item \textbf{Click} Tagging and annotation for this document in the search results.
+\item \textbf{Tick} the checkbox of pre-existing tags. 
+\item \textbf{Click} save. 
+\item \textbf{Return} to local host search home page.
+\end{enumerate}
+
+Results: Documents are now tagged in Open Semantic Search
+
+
+Objective: Hypothes.is connected to Open Semantic Search
+
+Action:
+
+\begin{enumerate}
+\item \textbf{Repeat} previous instructions to find API token in Hypothes.is account. 
+\item \textbf{Don't} regenerate a new token.
+\item \textbf{Copy} API Token.
+\item \textbf{Open} loaded Open Semantic Search.
+\item \textbf{Click} on Datasources in the topbar of the Open Semantic Search interface.
+\item \textbf{Click} on Annotations (Hypothesis).
+\item \textbf{Enter} copied API Token for Authorization.
+\end{enumerate}
+
+Results: Your Hypothes.is account is now connected to Open Semantic Search
+
+
+
 \newpage
 \section{OpenRefine}
 \subsection{Working With OpenRefine}
