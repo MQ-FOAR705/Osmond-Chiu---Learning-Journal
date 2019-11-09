@@ -5,6 +5,7 @@
 \usepackage{hyperref}
 \usepackage{lipsum}
 \usepackage{graphicx}
+\usepackage{minted}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 
@@ -1258,10 +1259,10 @@ The webpage and PDF were added to Zotero via the browser but without a lot of ci
 
 Searches can be made via the tags and links can be made between referred sources.
 
-\subsection{OpenSemantic}
+\subsection{Open Semantic}
 \subsubsection*{7/9/2019 - 3:00pm}
 
-OpenSemantic Search is now working, it was lagging because of limited memory. The issue was limiting the available memory to below 1GB.
+Open Semantic Search is now working, it was lagging because of limited memory. The issue was limiting the available memory to below 1GB.
 
 While it works, it still is lagging. It will need to be further tested to see if it is a valuable tool or useful for the Proof of Concept.
 
@@ -1285,7 +1286,7 @@ I have identified the following user stories:
 \item Generate bibliography
 \end{itemize}
 
-The programs used will be Zotero, Hypothes.is and OpenSemantic Search.
+The programs used will be Zotero, Hypothes.is and Open Semantic Search.
 
 \subsection{Feedback from Elaboration Assessment}
 \subsubsection*{22/9/2019 - 12:00pm}
@@ -1473,13 +1474,13 @@ Error: Zotero not downloaded because redirection did not occur. \label{sec: Redi
 
 Result: 
 
-\begin{verbatim}[1] 4056
+\begin{minted}{bash}[1] 4056
 [2] 4057
 [2]+  Done                    platform=mac
 Luisas-Air:install-package osmondchiu$   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
   0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0
-\end{verbatim}
+\end{minted}
 Downloaded file named 'dl?channel=release', not installer.
 
 
@@ -1507,7 +1508,7 @@ cd desktop
 mkdir install-package
 cd install-package
 
-# Downloads Zotero, VirtualBox and OpenSemantic Search.
+# Downloads Zotero, VirtualBox and Open Semantic Search.
 
 curl -O https://download.zotero.org/client/release/5.0.74/Zotero-5.0.74.dmg 
 curl -O https://download.virtualbox.org/virtualbox/6.0.12/VirtualBox-6.0.12-133076-OSX.dmg
@@ -1576,9 +1577,9 @@ I am prioritising them in the following order:
     \item Highlight in Hypothes.is
     \item Annotation in Hypothes.is
     \item Download Virtual Box
-    \item Download OpenSemantic Search
+    \item Download Open Semantic Search
     \item Install Virtual Box
-    \item Load OpenSemantic Search
+    \item Load Open Semantic Search
     \item Text search in Open Semantic Search
     \item Create tags in Open Semantic Search
     \item Tag documents in Open Semantic Search
@@ -1594,24 +1595,25 @@ For my final technology deployment, a number of tasks cannot be automated. These
 \subsection{Test}
 \subsubsection*{7/10/2019 - 2:13pm}
 
-For the non-assessable demonstration I have worked to:
+For the non-assesable demonstration I have worked to:
 
 - Demonstrate how to use Zotero and have it integrated with Overleaf
 - Demonstrate Hypothes.is
-- Demonstrate OpenSemantic Search
+- Demonstrate Open Semantic Search
 - Show what tasks have been done on Automator
 - Demonstrate the use of Duplicati backing up the system
 - Show check list and instructions
 
-Going beyond that will be uploading a thesaurus to auto-tag and getting Hypothes.is to export annotations to OpenSemantic Search.
+Going beyond that will be uploading a thesaurus to auto-tag and getting Hypothes.is to export annotations to Open Semantic Search.
 
 
 \subsection{Displaying notifications}
 \subsubsection*{10/10/2019 - 8:30pm}
 
-
 From the #random channel on Slack, I saw that scripts can be used to generate notifications. The explanation was at
-https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayNotifications.html#//apple_ref/doc/uid/TP40016239-CH61-SW1
+
+\begin{verbatim}
+https://developer.apple.com/library/archive/documentation/LanguagesUtilities/Conceptual/MacAutomationScriptingGuide/DisplayNotifications.html#//apple_ref/doc/uid/TP40016239-CH61-SW1\end{verbatim}
 
 Objective: Generate Notification in Apple Script
 
@@ -1650,7 +1652,7 @@ Result: File is opened
 
 Make sure it is clear the package only works for MacOS through a notification to get a HD.
 
-Put URLs for alternative sites to download in package for Zotero, OpenSemantic Search, Virtual Box and Hypothes.is.
+Put URLs for alternative sites to download in package for Zotero, Open Semantic Search, Virtual Box and Hypothes.is.
 
 \subsection{Notifications and Executable files}
 \subsubsection*{10/10/2019 - 4:54pm}
@@ -1802,7 +1804,7 @@ cd desktop
 mkdir install-package
 cd install-package
 
-# Downloads Zotero, VirtualBox and OpenSemantic Search.
+# Downloads Zotero, VirtualBox and Open Semantic Search.
 
 curl -O https://download.zotero.org/client/release/5.0.74/Zotero-5.0.74.dmg 
 curl -O https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-OSX.dmg
@@ -1862,7 +1864,7 @@ Saving session...
 [Process completed]
 \end{verbatim}
 
-Issues include that the OpenSemantic Search ova does not download properly. Might be the wrong link as https://nx318.your-storageshare.de/s/DJ8HAJYXmpgMQyZ/download is not used. Once the link was changed, the code was run again.
+Issues include that the Open Semantic Search ova does not download properly. Might be the wrong link as https://nx318.your-storageshare.de/s/DJ8HAJYXmpgMQyZ/download is not used. Once the link was changed, the code was run again.
 
 It is tested again after these changes and runs successfully.
 
@@ -1924,7 +1926,7 @@ Follow the steps listed in Instructions pdf to complete the following tasks as p
     \item Create tag hierarchy
     \item Highlight in Hypothes.is
     \item Annotation in Hypothes.is
-    \item Load OpenSemantic Search
+    \item Load Open Semantic Search
     \item Text search in Open Semantic Search
     \item Create tags in Open Semantic Search
     \item Tag documents in Open Semantic Search
@@ -3022,7 +3024,7 @@ Feedback on my design document were:
 
 One change to design document is addressing the lack of priority - which things to do in which order. Can use Trello via labels to do this.
 
-User Stories include setup so do it for. Before indexing files on OpenSemantic, it needs to set up - treat as a user story, same with setting up a tag hierarchy before creaing tags.
+User Stories include setup so do it for. Before indexing files on Open Semantic, it needs to set up - treat as a user story, same with setting up a tag hierarchy before creaing tags.
 
 To do automated testing. play with Automator on Mac for quality assurance test. Simplest thing would be have something like a screen recording.
 
@@ -3036,7 +3038,7 @@ Based on what my plan is, my Git depository will likely be instructions for user
 
 Figure out how to export file and how to write a code to import it into a Zotero to do things like export of hypothes.is or download uploaded to program in Zotero via R?
 
-Other challenges might be upload vocabulary in OpenSemantic search to automatically tag documents
+Other challenges might be upload vocabulary in Open Semantic search to automatically tag documents
 
 \subsection*{18/10/2019 - 2:27pm} 
 \subsubsection*{PICO Presentation} 
